@@ -8,4 +8,5 @@ public:
 	~Ray();
 	Vector o;
 	Vector d;
+	float t;
 };

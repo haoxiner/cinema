@@ -16,7 +16,7 @@ Color Render(const Ray &ray,unsigned int depth)
 		return;
 	}
 	Intersection intersection;
-	bool hit = scene.Intersect(ray,intersection);
+	float hit = scene.Intersect(ray,intersection);
 	if (hit)
 	{
 		return Color::WHITE;
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 	{
 		for (size_t j = 0; j < 600; ++j)
 		{
-			Ray ray = camera.GenerateRay(static_cast<float>(i), static_cast<float>(j));
+			Ray ray = camera.GenerateRay(static_cast<float>(i)/800, static_cast<float>(j)/600);
 			Color color = Render(ray, 1);
 			image.SetColor(i, j, color);
 		}

@@ -145,20 +145,28 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="cinemacmd.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Intersection.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="TriangleMesh.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="Geometry.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Intersection.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="TriangleMesh.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="vertex.h" />
   </ItemGroup>
