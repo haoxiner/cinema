@@ -9,7 +9,7 @@ class Scene
 public:
 	Scene();
 	~Scene();
-	void Intersect(const Ray &ray, Intersection &intersection);
+	float Intersect(const Ray &ray, Intersection &intersection);
 private:
 	std::vector<Model> models;
 };

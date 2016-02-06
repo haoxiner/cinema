@@ -10,7 +10,7 @@ Scene::~Scene()
 {
 }
 
-void Scene::Intersect(const Ray &ray, Intersection &intersection)
+float Scene::Intersect(const Ray &ray, Intersection &intersection)
 {
 	float t = 0.0f;
 	for (auto modelIter = models.begin(); modelIter != models.end(); ++modelIter)
@@ -21,4 +21,5 @@ void Scene::Intersect(const Ray &ray, Intersection &intersection)
 			t = tHit;
 		}
 	}
+	return t;
 }
