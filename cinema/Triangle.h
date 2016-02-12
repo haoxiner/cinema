@@ -7,8 +7,7 @@ class Triangle : public Model
 public:
 	Triangle();
 	~Triangle();
-	virtual float Intersect(const Ray &ray);
-
-	Vector v1, v2, v3;
+	virtual bool Intersect(const Ray &ray,float *t);
+	Vector p0, p1, p2;
 };
 
