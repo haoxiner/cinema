@@ -1,6 +1,6 @@
 #pragma once
 #include "Vector.h"
-
+#include "Point.h"
 class Ray
 {
 public:
@@ -10,4 +10,5 @@ public:
 	Vector o;
 	Vector d;
 	float t;
+	Point GetPoint(float t);
 };

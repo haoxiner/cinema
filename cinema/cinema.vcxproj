@@ -149,6 +149,7 @@
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Intersection.cpp" />
     <ClCompile Include="Model.cpp" />
+    <ClCompile Include="Point.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Transform.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="Intersection.h" />
     <ClInclude Include="Model.h" />
+    <ClInclude Include="Point.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Transform.h" />
