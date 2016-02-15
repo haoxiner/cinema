@@ -6,3 +6,7 @@ Model::Model()
 {
 }
 
+Model::~Model()
+{
+
+}

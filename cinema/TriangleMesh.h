@@ -1,13 +1,13 @@
 #pragma once
 #include <vector>
-#include "Vector.h"
+#include "Point.h"
 #include "Model.h"
 class TriangleMesh : public Model
 {
 public:
 	TriangleMesh();
-	~TriangleMesh();
+	virtual ~TriangleMesh();
 	std::vector<unsigned int> indices;
-	std::vector<Vector> vertices;
+	std::vector<Point> vertices;
 	virtual float Intersect(const Ray &ray);
 };

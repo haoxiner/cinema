@@ -5,9 +5,9 @@ class Ray
 {
 public:
 	Ray();
-	Ray(const Vector &origin, const Vector &direction);
+	Ray(const Point &origin, const Vector &direction);
 	~Ray();
-	Vector o;
+	Point o;
 	Vector d;
 	float t;
 	Point GetPoint(float t);
