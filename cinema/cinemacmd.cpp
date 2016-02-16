@@ -14,14 +14,17 @@ Scene scene;
 
 Color Render(const Ray &ray,unsigned int depth)
 {
+	static unsigned int cnt = 0;
 	if (depth == 0)
 	{
 		return Color::WHITE;
 	}
 	Intersection intersection;
-	float hit = scene.Intersect(ray,intersection);
+	bool hit = scene.Intersect(ray,intersection);
 	if (hit)
 	{
+		++cnt;
+		std::cerr << cnt << " ";
 		return Color::WHITE;
 	}
 	else
@@ -38,14 +41,16 @@ void Test();
 int main(int argc, char *argv[])
 {
 	
-	TestBMP();
+	TestRender();
 	return 0;
 }
 void Test()
 {
-	unsigned int a = 800, b = 600;
-	unsigned int c = a*b * 3;
-	std::cerr << c << std::endl;
+	float a = std::numeric_limits<float>::infinity();
+	float b = std::numeric_limits<float>::infinity();
+	float c = 1e20f;
+	std::cerr << (b < a) << std::endl;
+	std::cerr << (c < a) << std::endl;
 }
 void TestBMP()
 {
@@ -71,15 +76,15 @@ void TestBMP()
 void TestRender()
 {
 	Image image(800, 600);
-	Camera camera(4.0f / 3.0f);
+	Camera camera(Vector(0, 0, 1), Vector(0, 1, 0), Point(0, 0, 0), 90.0f, 4.0f / 3.0f);
 	for (size_t i = 0; i < 800; ++i)
 	{
 		for (size_t j = 0; j < 600; ++j)
 		{
-			Ray ray = camera.GenerateRay(static_cast<float>(i) / 800, static_cast<float>(j) / 600);
+			Ray ray = camera.GenerateRay(static_cast<float>(i) / 800.0f, static_cast<float>(j) / 600.0f);
 			Color color = Render(ray, 1);
 			image.SetColor(i, j, color);
 		}
 	}
-	image.WriteToFile("result.jpg");
+	image.WriteToFile("D:\\test.bmp");
 }

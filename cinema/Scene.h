@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
-#include "Model.h"
 class Ray;
 class Intersection;
+class Model;
 
 class Scene
 {
@@ -11,6 +11,6 @@ public:
 	~Scene();
 	bool Intersect(const Ray &ray, Intersection &intersection);
 private:
-	std::vector<Model> models;
+	std::vector<Model*> models;
 };
 

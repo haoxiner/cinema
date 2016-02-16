@@ -11,11 +11,10 @@ TriangleMesh::~TriangleMesh()
 {
 }
 
-float TriangleMesh::Intersect(const Ray &ray)
+bool TriangleMesh::Intersect(const Ray &ray, float *t)
 {
 	Triangle triangle;
 	size_t index = 0u;
-	float t = 0.0f;
 	for (auto indexIter = indices.begin(); indexIter != indices.end(); ++indexIter)
 	{
 		triangle.p0 = vertices[*indexIter];
@@ -24,12 +23,12 @@ float TriangleMesh::Intersect(const Ray &ray)
 		++indexIter;
 		triangle.p2 = vertices[*indexIter];
 		float tHit;
-		bool hit = triangle.Intersect(ray, &t);
+		/*bool hit = triangle.Intersect(ray, &t);
 		if (tHit - t < 0.001f)
 		{
 			t = tHit;
 			index = indexIter - indices.begin();
-		}
+		}*/
 	}
-	return t;
+	return true;
 }

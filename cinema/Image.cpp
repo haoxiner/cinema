@@ -91,18 +91,16 @@ typedef struct tagIMAGEDATA
 void Image::WriteToFile(const std::string filename)
 {
 	BITMAPFILEHEADER header;
-	//memset(&header, 0, sizeof(header));
 	header.bfType = 0x4D42;
-	header.bfSize = 54+m_xResolution*m_yResolution*3; //size of this bmp (Byte)
+	header.bfSize = 54 + m_xResolution*m_yResolution * 3; //size of this bmp (Byte)
 	header.bfReserved1 = 0;
 	header.bfReserved2 = 0;
 	header.bfOffBits = 54; // offbit from 0000h to imagedata
 
 	BMP_INFOHEADER info;
-	memset(&info, 0, sizeof(info));
 	info.biSize = 40;
-	info.biWidth = 800;
-	info.biHeight = 600;
+	info.biWidth = m_xResolution;
+	info.biHeight = m_yResolution;
 	info.biPlanes = 1;
 	info.biBitCount = 24;
 	info.biCompression = 0;
@@ -113,7 +111,7 @@ void Image::WriteToFile(const std::string filename)
 	info.biClrImportant = 0;
 
 	std::ofstream file;
-	file.open(filename, std::ios::out | std::ios::binary | std::ios::trunc);
+	file.open(filename, std::ios::binary | std::ios::trunc);
 	file.write((char *)&header, sizeof(header));
 	file.write((char *)&info, sizeof(info));
 	file.write((char *)m_data, m_xResolution*m_yResolution * 3);
