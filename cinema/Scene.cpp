@@ -1,14 +1,18 @@
 #include "Scene.h"
 #include "Ray.h"
 #include "Triangle.h"
+#include "Sphere.h"
+#include "Intersection.h"
 
 Scene::Scene()
 {
-	Triangle *t = new Triangle();
-	t->p0 = Point(100, 100, 10);
-	t->p1 = Point(100, -100, 10);
-	t->p2 = Point(-100, -100, 10);
-	models.push_back(t);
+	/*Triangle *t = new Triangle();
+	t->p0 = Point(15, 15, 25);
+	t->p1 = Point(15, -15, 25);
+	t->p2 = Point(-15, -15, 25);
+	models.push_back(t);*/
+	Sphere *s = new Sphere(Point(0, 0, 15), 10);
+	models.push_back(s);
 }
 
 
@@ -26,13 +30,14 @@ bool Scene::Intersect(const Ray &ray, Intersection &intersection)
 	float tHit = std::numeric_limits<float>::infinity();
 	for (auto modelIter = models.begin(); modelIter != models.end(); ++modelIter)
 	{
-		if ((*modelIter)->Intersect(ray, &tHit) && tHit - t < 0.001f)
+		if ((*modelIter)->Intersect(ray, &tHit) && tHit < t)
 		{
 			t = tHit;
 		}
 	}
 	if (t < std::numeric_limits<float>::infinity())
 	{
+		intersection.depth = 0.5f;
 		return true;
 	}
 	else

@@ -149,9 +149,11 @@
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Intersection.cpp" />
     <ClCompile Include="Model.cpp" />
+    <ClCompile Include="ObjLoader.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="TriangleMesh.cpp" />
@@ -165,9 +167,11 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="Intersection.h" />
     <ClInclude Include="Model.h" />
+    <ClInclude Include="ObjLoader.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="Sphere.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="TriangleMesh.h" />

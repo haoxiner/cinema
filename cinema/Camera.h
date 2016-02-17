@@ -7,7 +7,6 @@ class Camera
 {
 public:
 	Camera();
-	Camera(float aspect);
 	Camera(const Vector &gaze, const Vector &up, const Point &position, float fieldOfView, float aspect);
 	~Camera();
 	Ray GenerateRay(float x, float y);

@@ -11,6 +11,10 @@ Color::Color(float rr, float gg, float bb):r(rr),g(gg),b(bb)
 
 }
 
+Color::Color(float intensity):r(intensity),g(intensity),b(intensity)
+{
+}
+
 Color::~Color()
 {
 }

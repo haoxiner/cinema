@@ -5,5 +5,6 @@ class Intersection
 public:
 	Intersection();
 	~Intersection();
+	float depth;
 };
 

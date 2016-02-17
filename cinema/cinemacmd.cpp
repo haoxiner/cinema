@@ -10,11 +10,12 @@
 #include <random>
 #include <limits>
 
+#include <fstream>
+
 Scene scene;
 
 Color Render(const Ray &ray,unsigned int depth)
 {
-	static unsigned int cnt = 0;
 	if (depth == 0)
 	{
 		return Color::WHITE;
@@ -23,9 +24,7 @@ Color Render(const Ray &ray,unsigned int depth)
 	bool hit = scene.Intersect(ray,intersection);
 	if (hit)
 	{
-		++cnt;
-		std::cerr << cnt << " ";
-		return Color::WHITE;
+		return Color(intersection.depth);
 	}
 	else
 	{
@@ -33,10 +32,7 @@ Color Render(const Ray &ray,unsigned int depth)
 	}
 }
 
-void ShowImage(Image *img);
-
 void TestRender();
-void TestBMP();
 void Test();
 int main(int argc, char *argv[])
 {
@@ -52,36 +48,15 @@ void Test()
 	std::cerr << (b < a) << std::endl;
 	std::cerr << (c < a) << std::endl;
 }
-void TestBMP()
-{
-	int i = 0;
-	int j = i + 1;
-	std::cerr << "1" << std::endl;
-	Image img(800, 600);
-	std::cerr << "2" << std::endl;
-	srand(0);
-	float max = static_cast<float>(RAND_MAX);
-	for (size_t i = 0; i < 800; ++i)
-	{
-		for (size_t j = 0; j < 600; ++j)
-		{
-			Color c(rand() / max, rand() / max, rand() / max);
-			img.SetColor(i, j, c);
-		}
-	}
-
-	img.WriteToFile("D:\\test.bmp");
-	std::cerr << "3" << std::endl;
-}
 void TestRender()
 {
 	Image image(800, 600);
-	Camera camera(Vector(0, 0, 1), Vector(0, 1, 0), Point(0, 0, 0), 90.0f, 4.0f / 3.0f);
-	for (size_t i = 0; i < 800; ++i)
+	Camera camera(Vector(0, -1, 0), Vector(0, 0, 1), Point(0, 15, 15), 90.0f, 4.0f / 3.0f);
+	for (int i = 0; i < 800; ++i)
 	{
-		for (size_t j = 0; j < 600; ++j)
+		for (int j = 0; j < 600; ++j)
 		{
-			Ray ray = camera.GenerateRay(static_cast<float>(i) / 800.0f, static_cast<float>(j) / 600.0f);
+			Ray ray = camera.GenerateRay(static_cast<float>(i-400) / 400.0f, static_cast<float>(j-300) / 300.0f);
 			Color color = Render(ray, 1);
 			image.SetColor(i, j, color);
 		}
