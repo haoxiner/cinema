@@ -37,7 +37,6 @@ bool Scene::Intersect(const Ray &ray, Intersection &intersection)
 	}
 	if (t < std::numeric_limits<float>::infinity())
 	{
-		intersection.depth = 0.5f;
 		return true;
 	}
 	else

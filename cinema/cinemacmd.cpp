@@ -24,7 +24,7 @@ Color Render(const Ray &ray,unsigned int depth)
 	bool hit = scene.Intersect(ray,intersection);
 	if (hit)
 	{
-		return Color(intersection.depth);
+		return Color(0.5f);
 	}
 	else
 	{
@@ -52,6 +52,7 @@ void TestRender()
 {
 	Image image(800, 600);
 	Camera camera(Vector(0, -1, 0), Vector(0, 0, 1), Point(0, 15, 15), 90.0f, 4.0f / 3.0f);
+	
 	for (int i = 0; i < 800; ++i)
 	{
 		for (int j = 0; j < 600; ++j)
