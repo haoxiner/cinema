@@ -37,6 +37,14 @@ bool Scene::Intersect(const Ray &ray, Intersection &intersection)
 	}
 	if (t < std::numeric_limits<float>::infinity())
 	{
+		intersection.point = ray.GetPoint(t);
+		intersection.normal = intersection.point - Point(0, 0, 15);
+		intersection.normal = Vector::Normalize(intersection.normal);
+
+		intersection.color = std::fabsf(Vector::Dot(intersection.normal, Vector::Normalize(Vector(1, 1, -1))));
+
+		//intersection.normal = intersection.normal*0.5f;
+		//intersection.color = Color(intersection.normal.x+0.5f,intersection.normal.y + 0.5f,intersection.normal.z + 0.5f);
 		return true;
 	}
 	else

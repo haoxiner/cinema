@@ -13,7 +13,7 @@ Ray::~Ray()
 {
 }
 
-Point Ray::GetPoint(float t)
+Point Ray::GetPoint(float t) const
 {
 	return o + d*t;
 }

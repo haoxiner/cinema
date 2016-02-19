@@ -13,6 +13,7 @@
 #include <fstream>
 
 Scene scene;
+std::ofstream logfile;
 
 Color Render(const Ray &ray,unsigned int depth)
 {
@@ -24,7 +25,8 @@ Color Render(const Ray &ray,unsigned int depth)
 	bool hit = scene.Intersect(ray,intersection);
 	if (hit)
 	{
-		return Color(0.5f);
+		logfile << intersection.color.r << " ";
+		return intersection.color;
 	}
 	else
 	{
@@ -50,8 +52,9 @@ void Test()
 }
 void TestRender()
 {
+	logfile.open("D:\\log.txt", std::ios::trunc);
 	Image image(800, 600);
-	Camera camera(Vector(0, -1, 0), Vector(0, 0, 1), Point(0, 15, 15), 90.0f, 4.0f / 3.0f);
+	Camera camera(Vector(0, 0, 1), Vector(0, 1, 0), Point(0, 0, 0), 90.0f, 4.0f / 3.0f);
 	
 	for (int i = 0; i < 800; ++i)
 	{
@@ -62,5 +65,6 @@ void TestRender()
 			image.SetColor(i, j, color);
 		}
 	}
-	image.WriteToFile("D:\\test.bmp");
+	image.WriteToFile("D:\\noabs.bmp");
+	logfile.close();
 }
