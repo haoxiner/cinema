@@ -1,6 +1,7 @@
 #include "Sphere.h"
 #include "Vector.h"
 #include "Ray.h"
+#include "Intersection.h"
 #include <cmath>
 
 Sphere::Sphere(const Point &center,const float radius):
@@ -13,7 +14,7 @@ Sphere::~Sphere()
 {
 }
 
-bool Sphere::Intersect(const Ray & ray, float * t)
+bool Sphere::Intersect(const Ray & ray, float * t, Intersection *intersection)
 {
 	Vector v = ray.o - m_center;
 	float vDotD = Vector::Dot(v, ray.d);

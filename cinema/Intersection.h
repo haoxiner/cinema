@@ -12,5 +12,6 @@ public:
 	Point point;
 	Model *model;
 	Color color;
+	float u1, u2;
 };
 

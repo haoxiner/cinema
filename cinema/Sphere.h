@@ -1,12 +1,12 @@
 #pragma once
-#include "Model.h"
+#include "Geometry.h"
 #include "Point.h"
-class Sphere : public Model
+class Sphere : public Geometry
 {
 public:
 	Sphere(const Point &center, const float radius);
-	~Sphere();
-	virtual bool Intersect(const Ray &ray, float *t);
+	virtual ~Sphere();
+	virtual bool Intersect(const Ray &ray, float *t,Intersection *intersection);
 private:
 	Point m_center;
 	float m_radius;

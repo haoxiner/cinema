@@ -1,10 +1,17 @@
 #pragma once
+#include "Material.h"
+#include "Geometry.h"
 class Ray;
+class Intersection;
+
 class Model
 {
 public:
 	Model();
-	virtual ~Model() = 0;
-	virtual bool Intersect(const Ray &ray, float *t) = 0;
+	~Model();
+	bool Intersect(const Ray &ray, float *t, Intersection *intersection);
+	// one material per model.
+	Material material;
+	Geometry *geometry;
 };
 

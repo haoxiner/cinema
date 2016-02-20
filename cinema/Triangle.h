@@ -1,13 +1,13 @@
 #pragma once
-#include "Model.h"
+#include "Geometry.h"
 #include "Vector.h"
 #include "Point.h"
-class Triangle : public Model
+class Triangle : public Geometry
 {
 public:
 	Triangle();
 	virtual ~Triangle();
-	virtual bool Intersect(const Ray &ray,float *t);
+	virtual bool Intersect(const Ray &ray, float *t, Intersection *intersection);
 	Point p0, p1, p2;
 };
 

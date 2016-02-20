@@ -24,7 +24,6 @@ Color Render(const Ray &ray,unsigned int depth)
 	bool hit = scene.Intersect(ray,intersection);
 	if (hit)
 	{
-		logfile << intersection.color.r << " ";
 		return intersection.color;
 	}
 	else

@@ -1,6 +1,7 @@
 #include "Triangle.h"
 #include "Ray.h"
 #include "Vector.h"
+#include "Intersection.h"
 
 Triangle::Triangle()
 {
@@ -10,8 +11,8 @@ Triangle::Triangle()
 Triangle::~Triangle()
 {
 }
-#include <iostream>
-bool Triangle::Intersect(const Ray &ray,float *t)
+
+bool Triangle::Intersect(const Ray &ray,float *t, Intersection *intersection)
 {
 	Vector s = ray.o - p0;
 	Vector e1 = p1 - p0;

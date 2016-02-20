@@ -1,6 +1,6 @@
 #include "TriangleMesh.h"
 #include "Triangle.h"
-
+#include "Intersection.h"
 
 TriangleMesh::TriangleMesh()
 {
@@ -11,7 +11,7 @@ TriangleMesh::~TriangleMesh()
 {
 }
 
-bool TriangleMesh::Intersect(const Ray &ray, float *t)
+bool TriangleMesh::Intersect(const Ray &ray, float *t, Intersection *intersection)
 {
 	Triangle triangle;
 	size_t index = 0u;

@@ -3,6 +3,8 @@
 #include "Triangle.h"
 #include "Sphere.h"
 #include "Intersection.h"
+#include "Geometry.h"
+#include "Model.h"
 
 Scene::Scene()
 {
@@ -12,7 +14,9 @@ Scene::Scene()
 	t->p2 = Point(-15, -15, 25);
 	models.push_back(t);*/
 	Sphere *s = new Sphere(Point(0, 0, 15), 10);
-	models.push_back(s);
+	Model *model = new Model();
+	model->geometry = s;
+	models.push_back(model);
 }
 
 
@@ -30,8 +34,9 @@ bool Scene::Intersect(const Ray &ray, Intersection &intersection)
 	float tHit = std::numeric_limits<float>::infinity();
 	for (auto modelIter = models.begin(); modelIter != models.end(); ++modelIter)
 	{
-		if ((*modelIter)->Intersect(ray, &tHit) && tHit < t)
+		if ((*modelIter)->Intersect(ray, &tHit, &intersection) && tHit < t)
 		{
+			intersection.model = *modelIter;
 			t = tHit;
 		}
 	}
@@ -42,7 +47,6 @@ bool Scene::Intersect(const Ray &ray, Intersection &intersection)
 		intersection.normal = Vector::Normalize(intersection.normal);
 
 		intersection.color = Vector::Dot(intersection.normal, Vector::Normalize(Vector(1, 1, -1)));
-
 		//intersection.normal = intersection.normal*0.5f;
 		//intersection.color = Color(intersection.normal.x+0.5f,intersection.normal.y + 0.5f,intersection.normal.z + 0.5f);
 		return true;

@@ -19,6 +19,12 @@
     <Filter Include="Source Files\math">
       <UniqueIdentifier>{386960e3-6f5e-404f-82d8-e0ed1eed384a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\bxdf">
+      <UniqueIdentifier>{113aaa91-39be-41c3-8aad-7f5d07908001}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\bxdf">
+      <UniqueIdentifier>{6188e81e-3100-4a14-90b9-b1aea5c9c067}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vertex.cpp">
@@ -75,6 +81,12 @@
     <ClCompile Include="Material.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BxDF.cpp">
+      <Filter>Source Files\bxdf</Filter>
+    </ClCompile>
+    <ClCompile Include="SpecularReflection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vertex.h">
@@ -126,6 +138,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BxDF.h">
+      <Filter>Header Files\bxdf</Filter>
+    </ClInclude>
+    <ClInclude Include="SpecularReflection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
