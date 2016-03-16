@@ -51,7 +51,7 @@ void Test()
 void TestRender()
 {
 	Image image(800, 600);
-	Camera camera(Vector(0, 0, 1), Vector(0, 1, 0), Point(0, 0, 0), 90.0f, 4.0f / 3.0f);
+	Camera camera(Point(0, 0, 15), Point(0, 0, 0), Vector(0, 1, 0), 90.0f, 4.0f / 3.0f);
 	
 	for (int i = 0; i < 800; ++i)
 	{
@@ -62,5 +62,5 @@ void TestRender()
 			image.SetColor(i, j, color);
 		}
 	}
-	image.WriteToFile("D:\\result.bmp");
+	image.WriteToFile("C:/Resource/result.bmp");
 }

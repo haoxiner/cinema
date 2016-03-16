@@ -7,6 +7,7 @@ struct Vector
 	Vector(const float xx, const float yy, const float zz);
 	Vector operator+(const Vector &v) const;
 	Vector operator-(const Vector &v) const;
+	Vector operator-()const;
 	Vector operator*(const float f) const;
 	Vector operator/(const float f) const;
 	float Square() const;

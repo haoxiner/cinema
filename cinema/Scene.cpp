@@ -9,11 +9,13 @@
 Scene::Scene()
 {
 	/*Triangle *t = new Triangle();
-	t->p0 = Point(15, 15, 25);
-	t->p1 = Point(15, -15, 25);
-	t->p2 = Point(-15, -15, 25);
-	models.push_back(t);*/
-	Sphere *s = new Sphere(Point(0, 0, 15), 10);
+	t->p0 = Point(15, 15, -10);
+	t->p1 = Point(15, -15, -10);
+	t->p2 = Point(-15, -15, -10);
+	Model *model = new Model;
+	model->geometry = t;
+	models.push_back(model);*/
+	Sphere *s = new Sphere(Point(0, 0, 0), 10);
 	Model *model = new Model();
 	model->geometry = s;
 	models.push_back(model);
@@ -30,8 +32,11 @@ Scene::~Scene()
 
 bool Scene::Intersect(const Ray &ray, Intersection &intersection)
 {
+	// final t
 	float t = std::numeric_limits<float>::infinity();
+	// current hit t
 	float tHit = std::numeric_limits<float>::infinity();
+	// check intersection
 	for (auto modelIter = models.begin(); modelIter != models.end(); ++modelIter)
 	{
 		if ((*modelIter)->Intersect(ray, &tHit, &intersection) && tHit < t)
@@ -40,15 +45,15 @@ bool Scene::Intersect(const Ray &ray, Intersection &intersection)
 			t = tHit;
 		}
 	}
+	// if hit, shade
 	if (t < std::numeric_limits<float>::infinity())
 	{
 		intersection.point = ray.GetPoint(t);
-		intersection.normal = intersection.point - Point(0, 0, 15);
+		intersection.normal = intersection.point - Point(0,0,0);
 		intersection.normal = Vector::Normalize(intersection.normal);
 
-		intersection.color = Vector::Dot(intersection.normal, Vector::Normalize(Vector(1, 1, -1)));
-		//intersection.normal = intersection.normal*0.5f;
-		//intersection.color = Color(intersection.normal.x+0.5f,intersection.normal.y + 0.5f,intersection.normal.z + 0.5f);
+		intersection.color = Vector::Dot(intersection.normal, Vector::Normalize(Point(0, 0, 20) - intersection.point));
+		//intersection.color = Color::WHITE;
 		return true;
 	}
 	else

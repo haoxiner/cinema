@@ -11,6 +11,10 @@ Vector Vector::operator-(const Vector &v) const
 {
 	return Vector(x - v.x, y - v.y, z - v.z);
 }
+Vector Vector::operator-() const
+{
+	return Vector(-x, -y, -z);
+}
 Vector Vector::operator*(const float f) const
 {
 	return Vector(x*f, y*f, z*f);

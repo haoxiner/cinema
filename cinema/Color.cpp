@@ -26,7 +26,7 @@ Color::Color(float rr, float gg, float bb):r(CLAMP_COLOR(rr)),g(CLAMP_COLOR(gg))
 
 Color::Color(float intensity)
 {
-	g = b = r = CLAMP_COLOR(intensity);
+	b = g = r = CLAMP_COLOR(intensity);
 }
 
 Color::~Color()

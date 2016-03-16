@@ -84,9 +84,6 @@
     <ClCompile Include="BxDF.cpp">
       <Filter>Source Files\bxdf</Filter>
     </ClCompile>
-    <ClCompile Include="SpecularReflection.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vertex.h">
@@ -144,7 +141,7 @@
       <Filter>Header Files\bxdf</Filter>
     </ClInclude>
     <ClInclude Include="SpecularReflection.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\bxdf</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
