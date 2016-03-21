@@ -57,8 +57,6 @@ bool Scene::Intersect(const Ray &ray, Intersection &intersection)
 	// if hit, shade
 	if (t < std::numeric_limits<float>::infinity())
 	{
-		//intersection.color = Vector::Dot(intersection.normal.Normalize(), Vector::Normalize(Point(20, 20, 0) - intersection.point));
-		//intersection.color = Color::WHITE;
 		return true;
 	}
 	else

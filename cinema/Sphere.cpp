@@ -13,7 +13,7 @@ Sphere::Sphere(const Point &center,const float radius):
 Sphere::~Sphere()
 {
 }
-#include <cstdio>
+
 bool Sphere::Intersect(const Ray & ray, float * t, Intersection *intersection)
 {
 	Vector v = ray.o - m_center;
@@ -22,9 +22,10 @@ bool Sphere::Intersect(const Ray & ray, float * t, Intersection *intersection)
 	float delta = vDotD*vDotD - squareD*v.Square() + squareD*m_squareRadius;
 	if (delta >= 0)
 	{
-		*t = (-vDotD - std::sqrtf(delta)) / squareD;
-		if (*t > 0.0f)
+		float tHit = (-vDotD - std::sqrtf(delta)) / squareD;
+		if (tHit > 0.0f)
 		{
+			*t = tHit;
 			intersection->point = ray.GetPoint(*t);
 			intersection->normal = intersection->point - m_center;
 			return true;

@@ -1,11 +1,9 @@
 #pragma once
 #include "BSDF.h"
-class SpecularReflection : public BSDF
+class DiffuseReflection : public BSDF
 {
 public:
-	SpecularReflection();
-	SpecularReflection(const Color &color);
-	~SpecularReflection();
+	DiffuseReflection();
+	DiffuseReflection(const Color &color);
 	virtual Color f(const Vector &normal, const Vector &wo, Vector *wi, float *pdf, Sampler *sampler);
 };
-

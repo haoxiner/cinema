@@ -146,6 +146,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="cinemacmd.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="DiffuseReflection.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Intersection.cpp" />
@@ -154,6 +155,7 @@
     <ClCompile Include="ObjLoader.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Ray.cpp" />
+    <ClCompile Include="Sampler.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SpecularReflection.cpp" />
     <ClCompile Include="Sphere.cpp" />
@@ -167,6 +169,7 @@
     <ClInclude Include="BSDF.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="DiffuseReflection.h" />
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Intersection.h" />
@@ -175,6 +178,7 @@
     <ClInclude Include="ObjLoader.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Ray.h" />
+    <ClInclude Include="Sampler.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SpecularReflection.h" />
     <ClInclude Include="Sphere.h" />

@@ -7,6 +7,7 @@
 #include "Intersection.h"
 #include "BSDF.h"
 #include "Model.h"
+#include "Sampler.h"
 #include <vector>
 #include <iostream>
 #include <random>
@@ -15,6 +16,7 @@
 #include <fstream>
 
 Scene scene;
+Sampler sampler;
 
 Color Render(const Ray &cameraRay)
 {
@@ -33,7 +35,7 @@ Color Render(const Ray &cameraRay)
 			break;
 		}
 		float pdf;
-		color += intersection.model->bsdf->f(intersection.normal.Normalize(), wo.Normalize(), &wi, &pdf);
+		color += intersection.model->bsdf->f(intersection.normal.Normalize(), wo.Normalize(), &wi, &pdf, &sampler);
 		if (bounces < 5)
 		{
 			ray.o = intersection.point;

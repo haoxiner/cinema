@@ -87,6 +87,12 @@
     <ClCompile Include="SpecularReflection.cpp">
       <Filter>Source Files\bxdf</Filter>
     </ClCompile>
+    <ClCompile Include="DiffuseReflection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sampler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vertex.h">
@@ -145,6 +151,12 @@
     </ClInclude>
     <ClInclude Include="BSDF.h">
       <Filter>Header Files\bxdf</Filter>
+    </ClInclude>
+    <ClInclude Include="DiffuseReflection.h">
+      <Filter>Header Files\bxdf</Filter>
+    </ClInclude>
+    <ClInclude Include="Sampler.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
