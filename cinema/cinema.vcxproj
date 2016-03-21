@@ -142,7 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BxDF.cpp" />
+    <ClCompile Include="BSDF.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="cinemacmd.cpp" />
     <ClCompile Include="Color.cpp" />
@@ -155,6 +155,7 @@
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SpecularReflection.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Triangle.cpp" />
@@ -163,7 +164,7 @@
     <ClCompile Include="vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BxDF.h" />
+    <ClInclude Include="BSDF.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Geometry.h" />

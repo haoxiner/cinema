@@ -19,11 +19,11 @@ Image::~Image()
 void Image::SetColor(unsigned int x, unsigned int y, const Color &color)
 {
 	uint8_t *location = m_data + y * m_xResolution * 3 + x * 3;
-	*location = static_cast<unsigned int>(color.r * 255);
+	*location = static_cast<unsigned int>(color.b * 255);
 	++location;
 	*location = static_cast<unsigned int>(color.g * 255);
 	++location;
-	*location = static_cast<unsigned int>(color.b * 255);
+	*location = static_cast<unsigned int>(color.r * 255);
 }
 
 typedef struct tagBITMAPFILEHEADER

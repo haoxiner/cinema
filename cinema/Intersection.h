@@ -13,5 +13,6 @@ public:
 	Model *model;
 	Color color;
 	float u1, u2;
+	float u, v;
 };
 

@@ -81,7 +81,10 @@
     <ClCompile Include="Material.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BxDF.cpp">
+    <ClCompile Include="BSDF.cpp">
+      <Filter>Source Files\bxdf</Filter>
+    </ClCompile>
+    <ClCompile Include="SpecularReflection.cpp">
       <Filter>Source Files\bxdf</Filter>
     </ClCompile>
   </ItemGroup>
@@ -137,10 +140,10 @@
     <ClInclude Include="Material.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BxDF.h">
+    <ClInclude Include="SpecularReflection.h">
       <Filter>Header Files\bxdf</Filter>
     </ClInclude>
-    <ClInclude Include="SpecularReflection.h">
+    <ClInclude Include="BSDF.h">
       <Filter>Header Files\bxdf</Filter>
     </ClInclude>
   </ItemGroup>

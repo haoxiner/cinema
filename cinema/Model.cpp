@@ -1,5 +1,5 @@
 #include "Model.h"
-
+#include "Intersection.h"
 Model::Model():geometry(nullptr)
 {
 }
@@ -14,5 +14,10 @@ Model::~Model()
 
 bool Model::Intersect(const Ray &ray, float *t, Intersection *intersection)
 {
-	return geometry->Intersect(ray, t, intersection);
+	if (geometry->Intersect(ray, t, intersection))
+	{
+		intersection->model = this;
+		return true;
+	}
+	return false;
 }

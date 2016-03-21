@@ -11,7 +11,7 @@ public:
 	~Model();
 	bool Intersect(const Ray &ray, float *t, Intersection *intersection);
 	// one material per model.
-	Material material;
+	BSDF *bsdf;
 	Geometry *geometry;
 };
 

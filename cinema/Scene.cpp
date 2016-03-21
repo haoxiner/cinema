@@ -5,7 +5,7 @@
 #include "Intersection.h"
 #include "Geometry.h"
 #include "Model.h"
-
+#include "SpecularReflection.h"
 Scene::Scene()
 {
 	/*Triangle *t = new Triangle();
@@ -15,10 +15,18 @@ Scene::Scene()
 	Model *model = new Model;
 	model->geometry = t;
 	models.push_back(model);*/
-	Sphere *s = new Sphere(Point(0, 0, 0), 10);
+
+	Sphere *s = new Sphere(Point(-10, 0, -5), 8);
 	Model *model = new Model();
 	model->geometry = s;
+	model->bsdf = new SpecularReflection(Color(0.3f, 0.0f, 0.0f));
 	models.push_back(model);
+
+	Sphere *s2(new Sphere(Point(10, 0, -5), 8));
+	Model *m2(new Model);
+	m2->geometry = s2;
+	m2->bsdf = new SpecularReflection(Color(0.0f, 0.0f, 0.3f));
+	models.push_back(m2);
 }
 
 
@@ -36,23 +44,20 @@ bool Scene::Intersect(const Ray &ray, Intersection &intersection)
 	float t = std::numeric_limits<float>::infinity();
 	// current hit t
 	float tHit = std::numeric_limits<float>::infinity();
+	Intersection currentIntersection;
 	// check intersection
 	for (auto modelIter = models.begin(); modelIter != models.end(); ++modelIter)
 	{
-		if ((*modelIter)->Intersect(ray, &tHit, &intersection) && tHit < t)
+		if ((*modelIter)->Intersect(ray, &tHit, &currentIntersection) && tHit < t)
 		{
-			intersection.model = *modelIter;
+			intersection = currentIntersection;
 			t = tHit;
 		}
 	}
 	// if hit, shade
 	if (t < std::numeric_limits<float>::infinity())
 	{
-		intersection.point = ray.GetPoint(t);
-		intersection.normal = intersection.point - Point(0,0,0);
-		intersection.normal = Vector::Normalize(intersection.normal);
-
-		intersection.color = Vector::Dot(intersection.normal, Vector::Normalize(Point(0, 0, 20) - intersection.point));
+		//intersection.color = Vector::Dot(intersection.normal.Normalize(), Vector::Normalize(Point(20, 20, 0) - intersection.point));
 		//intersection.color = Color::WHITE;
 		return true;
 	}

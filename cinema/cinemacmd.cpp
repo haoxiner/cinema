@@ -5,6 +5,8 @@
 #include "Color.h"
 #include "Scene.h"
 #include "Intersection.h"
+#include "BSDF.h"
+#include "Model.h"
 #include <vector>
 #include <iostream>
 #include <random>
@@ -14,22 +16,36 @@
 
 Scene scene;
 
-Color Render(const Ray &ray,unsigned int depth)
+Color Render(const Ray &cameraRay)
 {
-	if (depth == 0)
-	{
-		return Color::WHITE;
-	}
+	Color color = Color::BLACK;
+	Color pathColor = Color::WHITE;
+
 	Intersection intersection;
-	bool hit = scene.Intersect(ray,intersection);
-	if (hit)
+	Vector wi;
+	Vector wo(-cameraRay.d);
+	Ray ray(cameraRay);
+
+	for (size_t bounces = 0; ; ++bounces)
 	{
-		return intersection.color;
+		if (!scene.Intersect(ray, intersection))
+		{
+			break;
+		}
+		float pdf;
+		color += intersection.model->bsdf->f(intersection.normal.Normalize(), wo.Normalize(), &wi, &pdf);
+		if (bounces < 5)
+		{
+			ray.o = intersection.point;
+			ray.d = wi;
+			wo = -wi;
+		}
+		else
+		{
+			break;
+		}
 	}
-	else
-	{
-		return Color::BLACK;
-	}
+	return color;
 }
 
 void TestRender();
@@ -58,7 +74,7 @@ void TestRender()
 		for (int j = 0; j < 600; ++j)
 		{
 			Ray ray = camera.GenerateRay(static_cast<float>(i-400) / 400.0f, static_cast<float>(j-300) / 300.0f);
-			Color color = Render(ray, 1);
+			Color color = Render(ray);
 			image.SetColor(i, j, color);
 		}
 	}

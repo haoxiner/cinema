@@ -16,7 +16,7 @@ inline float CLAMP_COLOR(float value)
 	return value;
 }
 
-Color::Color()
+Color::Color() :r(0), g(0), b(0)
 {
 }
 
@@ -31,4 +31,35 @@ Color::Color(float intensity)
 
 Color::~Color()
 {
+}
+
+Color Color::operator+(const Color & c) const
+{
+	return Color(r + c.r, g + c.g, b + c.b);
+}
+
+Color& Color::operator+=(const Color & c)
+{
+	r = CLAMP_COLOR(r + c.r);
+	g = CLAMP_COLOR(g + c.g);
+	b = CLAMP_COLOR(b + c.b);
+	return *this;
+}
+
+Color Color::operator*(const Color & c) const
+{
+	return Color(r * c.r, g * c.g, b * c.b);
+}
+
+Color & Color::operator*=(const Color & c)
+{
+	r *= c.r;
+	g *= c.g;
+	b *= c.b;
+	return *this;
+}
+
+Color Color::operator*(const float f) const
+{
+	return Color(r*f, g*f, b*f);
 }

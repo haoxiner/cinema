@@ -20,7 +20,7 @@ bool Triangle::Intersect(const Ray &ray, float *t, Intersection *intersection)
 	Vector s1 = Vector::Cross(ray.d, e2);
 	Vector s2 = Vector::Cross(s, e1);
 	float determinantOfCoefficient = Vector::Dot(s1, e1);
-	//TODO 0.0f is a problem
+	//TODO 0.0f may be a problem
 	if (determinantOfCoefficient == 0.0f)
 	{
 		return false;
