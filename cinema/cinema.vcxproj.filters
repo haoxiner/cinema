@@ -87,11 +87,11 @@
     <ClCompile Include="SpecularReflection.cpp">
       <Filter>Source Files\bxdf</Filter>
     </ClCompile>
-    <ClCompile Include="DiffuseReflection.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Sampler.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DiffuseReflection.cpp">
+      <Filter>Source Files\bxdf</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
