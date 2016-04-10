@@ -13,8 +13,8 @@ Camera::~Camera()
 }
 
 Camera::Camera(const Point & position, const Point & focus, const Vector & up, 
-	float fieldOfView, float aspect):
-	m_position(position), m_aspect(aspect), m_distance(1.0f / std::tanf(fieldOfView / 180.0f*PI / 2.0f))
+	double fieldOfView, double aspect):
+	m_position(position), m_aspect(aspect), m_distance(1.0f / std::tan(fieldOfView / 180.0f*PI / 2.0f))
 {
 	Vector egaze = -Vector::Normalize(focus - position);
 	Vector eright = Vector::Normalize(Vector::Cross(Vector::Normalize(up), egaze));
@@ -27,7 +27,7 @@ Camera::Camera(const Point & position, const Point & focus, const Vector & up,
 		0.0f, 0.0f, 0.0f, 1.0f);
 }
 
-Ray Camera::GenerateRay(float x, float y)
+Ray Camera::GenerateRay(double x, double y)
 {
 	Vector direction(x*m_aspect, y, -m_distance);
 	return Ray(m_position, m_cameraToWorld(direction));

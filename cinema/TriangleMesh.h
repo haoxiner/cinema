@@ -10,5 +10,5 @@ public:
 	virtual ~TriangleMesh();
 	std::vector<unsigned int> indices;
 	std::vector<Point> vertices;
-	virtual bool Intersect(const Ray &ray, float *t, Intersection *intersection);
+	virtual bool Intersect(const Ray &ray, double *t, Intersection *intersection);
 };

@@ -7,12 +7,12 @@ class Camera
 {
 public:
 	Camera();
-	Camera(const Point &position, const Point &focus, const Vector &up, float fieldOfView, float aspect);
+	Camera(const Point &position, const Point &focus, const Vector &up, double fieldOfView, double aspect);
 	~Camera();
-	Ray GenerateRay(float x, float y);
+	Ray GenerateRay(double x, double y);
 private:
-	float m_aspect;
-	float m_distance;
+	double m_aspect;
+	double m_distance;
 	Point m_position;
 	Transform m_cameraToWorld;
 };

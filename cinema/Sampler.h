@@ -3,5 +3,5 @@ class Sampler
 {
 public:
 	Sampler();
-	float GetFloat()const;
+	double GetDouble()const;
 };

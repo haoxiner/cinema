@@ -9,5 +9,5 @@ public:
 	~Ray();
 	Point o;
 	Vector d;
-	Point GetPoint(float t) const;
+	Point GetPoint(double t) const;
 };

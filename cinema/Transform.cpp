@@ -11,10 +11,10 @@ Transform::Transform()
 }
 
 Transform::Transform(
-	float a00, float a01, float a02, float a03,
-	float a10, float a11, float a12, float a13,
-	float a20, float a21, float a22, float a23,
-	float a30, float a31, float a32, float a33)
+	double a00, double a01, double a02, double a03,
+	double a10, double a11, double a12, double a13,
+	double a20, double a21, double a22, double a23,
+	double a30, double a31, double a32, double a33)
 {
 	m_matrix[0][0] = a00;m_matrix[0][1] = a01;m_matrix[0][2] = a02;m_matrix[0][3] = a03;
 	m_matrix[1][0] = a10;m_matrix[1][1] = a11;m_matrix[1][2] = a12;m_matrix[1][3] = a13;
@@ -37,7 +37,7 @@ Vector Transform::operator()(const Vector & v)const
 
 Point Transform::operator()(const Point & p)const
 {
-	float invW = 1.0f / (m_matrix[3][0] * p.x + m_matrix[3][1] * p.y + m_matrix[3][2] * p.z + m_matrix[3][3]);
+	double invW = 1.0f / (m_matrix[3][0] * p.x + m_matrix[3][1] * p.y + m_matrix[3][2] * p.z + m_matrix[3][3]);
 	return Point(
 		invW*(m_matrix[0][0] * p.x + m_matrix[0][1] * p.y + m_matrix[0][2] * p.z + m_matrix[0][3]),
 		invW*(m_matrix[1][0] * p.x + m_matrix[1][1] * p.y + m_matrix[1][2] * p.z + m_matrix[1][3]),
@@ -62,10 +62,10 @@ Transform Transform::operator*(const Transform & t) const
 }
 
 void Transform::SetMatrix(
-	float a00, float a01, float a02, float a03,
-	float a10, float a11, float a12, float a13,
-	float a20, float a21, float a22, float a23,
-	float a30, float a31, float a32, float a33)
+	double a00, double a01, double a02, double a03,
+	double a10, double a11, double a12, double a13,
+	double a20, double a21, double a22, double a23,
+	double a30, double a31, double a32, double a33)
 {
 	m_matrix[0][0] = a00;m_matrix[0][1] = a01;m_matrix[0][2] = a02;m_matrix[0][3] = a03;
 	m_matrix[1][0] = a10;m_matrix[1][1] = a11;m_matrix[1][2] = a12;m_matrix[1][3] = a13;

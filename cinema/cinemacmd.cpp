@@ -34,8 +34,9 @@ Color Render(const Ray &cameraRay)
 		{
 			break;
 		}
-		float pdf;
-		color += intersection.model->bsdf->f(intersection.normal.Normalize(), wo.Normalize(), &wi, &pdf, &sampler);
+		double pdf;
+		color += pathColor*intersection.model->emit;
+		pathColor *= intersection.model->bsdf->f(intersection.normal.Normalize(), wo.Normalize(), &wi, &pdf, &sampler);
 		if (bounces < 5)
 		{
 			ray.o = intersection.point;
@@ -60,9 +61,9 @@ int main(int argc, char *argv[])
 }
 void Test()
 {
-	float a = std::numeric_limits<float>::infinity();
-	float b = std::numeric_limits<float>::infinity();
-	float c = 1e20f;
+	double a = std::numeric_limits<double>::infinity();
+	double b = std::numeric_limits<double>::infinity();
+	double c = 1e20f;
 	std::cerr << (b < a) << std::endl;
 	std::cerr << (c < a) << std::endl;
 }
@@ -75,10 +76,10 @@ void TestRender()
 	{
 		for (int j = 0; j < 600; ++j)
 		{
-			Ray ray = camera.GenerateRay(static_cast<float>(i-400) / 400.0f, static_cast<float>(j-300) / 300.0f);
+			Ray ray = camera.GenerateRay(static_cast<double>(i-400) / 400.0, static_cast<double>(j-300) / 300.0);
 			Color color = Render(ray);
 			image.SetColor(i, j, color);
 		}
 	}
-	image.WriteToFile("C:/Resource/result.bmp");
+	image.WriteToFile("E:/result.bmp");
 }

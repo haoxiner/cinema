@@ -6,7 +6,7 @@ Sampler::Sampler()
 	srand(time(nullptr));
 }
 
-float Sampler::GetFloat() const
+double Sampler::GetDouble() const
 {
-	return static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
+	return static_cast<double>(rand()) / static_cast<double>(RAND_MAX);
 }

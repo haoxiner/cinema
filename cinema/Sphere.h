@@ -4,12 +4,12 @@
 class Sphere : public Geometry
 {
 public:
-	Sphere(const Point &center, const float radius);
+	Sphere(const Point &center, const double radius);
 	virtual ~Sphere();
-	virtual bool Intersect(const Ray &ray, float *t,Intersection *intersection);
+	virtual bool Intersect(const Ray &ray, double *t,Intersection *intersection);
 private:
 	Point m_center;
-	float m_radius;
-	float m_squareRadius;
+	double m_radius;
+	double m_squareRadius;
 };
 

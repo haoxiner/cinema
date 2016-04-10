@@ -6,7 +6,7 @@ Point::Point()
 {
 }
 
-Point::Point(float xx, float yy, float zz) :x(xx), y(yy), z(zz)
+Point::Point(double xx, double yy, double zz) :x(xx), y(yy), z(zz)
 {
 }
 

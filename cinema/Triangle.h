@@ -7,7 +7,7 @@ class Triangle : public Geometry
 public:
 	Triangle();
 	virtual ~Triangle();
-	virtual bool Intersect(const Ray &ray, float *t, Intersection *intersection);
+	virtual bool Intersect(const Ray &ray, double *t, Intersection *intersection);
 	Point p0, p1, p2;
 };
 

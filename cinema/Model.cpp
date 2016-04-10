@@ -12,7 +12,7 @@ Model::~Model()
 	}
 }
 
-bool Model::Intersect(const Ray &ray, float *t, Intersection *intersection)
+bool Model::Intersect(const Ray &ray, double *t, Intersection *intersection)
 {
 	if (geometry->Intersect(ray, t, intersection))
 	{
@@ -21,3 +21,4 @@ bool Model::Intersect(const Ray &ray, float *t, Intersection *intersection)
 	}
 	return false;
 }
+

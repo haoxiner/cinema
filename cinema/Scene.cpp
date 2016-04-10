@@ -6,6 +6,7 @@
 #include "Geometry.h"
 #include "Model.h"
 #include "SpecularReflection.h"
+#include "DiffuseReflection.h"
 Scene::Scene()
 {
 	/*Triangle *t = new Triangle();
@@ -19,13 +20,14 @@ Scene::Scene()
 	Sphere *s = new Sphere(Point(-10, 0, -5), 8);
 	Model *model = new Model();
 	model->geometry = s;
-	model->bsdf = new SpecularReflection(Color(0.3f, 0.0f, 0.0f));
+	model->bsdf = new SpecularReflection(Color(0,0,0));
+	model->emit = 1.0;
 	models.push_back(model);
 
 	Sphere *s2(new Sphere(Point(10, 0, -5), 8));
 	Model *m2(new Model);
 	m2->geometry = s2;
-	m2->bsdf = new SpecularReflection(Color(0.0f, 0.0f, 0.3f));
+	m2->bsdf = new DiffuseReflection(Color(0.5, 0, 0));
 	models.push_back(m2);
 }
 
@@ -41,9 +43,9 @@ Scene::~Scene()
 bool Scene::Intersect(const Ray &ray, Intersection &intersection)
 {
 	// final t
-	float t = std::numeric_limits<float>::infinity();
+	double t = std::numeric_limits<double>::infinity();
 	// current hit t
-	float tHit = std::numeric_limits<float>::infinity();
+	double tHit = std::numeric_limits<double>::infinity();
 	Intersection currentIntersection;
 	// check intersection
 	for (auto modelIter = models.begin(); modelIter != models.end(); ++modelIter)
@@ -55,7 +57,7 @@ bool Scene::Intersect(const Ray &ray, Intersection &intersection)
 		}
 	}
 	// if hit, shade
-	if (t < std::numeric_limits<float>::infinity())
+	if (t < std::numeric_limits<double>::infinity())
 	{
 		return true;
 	}
