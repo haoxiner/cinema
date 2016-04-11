@@ -23,13 +23,18 @@ bool Sphere::Intersect(const Ray & ray, double * t, Intersection *intersection)
 	if (delta >= 0)
 	{
 		double tHit = (-vDotD - std::sqrt(delta)) / squareD;
-		if (tHit > 0.0f)
+		if (tHit > 0.0)
 		{
 			*t = tHit;
 			intersection->point = ray.GetPoint(*t);
-			intersection->normal = intersection->point - m_center;
+			intersection->geometry = this;
 			return true;
 		}
 	}
 	return false;
+}
+
+Vector Sphere::GetNormal(const Point & point, const double u1, const double u2)const
+{
+	return point - m_center;
 }

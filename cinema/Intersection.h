@@ -3,6 +3,7 @@
 #include "Point.h"
 #include "Color.h"
 class Model;
+class Geometry;
 class Intersection
 {
 public:
@@ -12,7 +13,8 @@ public:
 	Point point;
 	Model *model;
 	Color color;
-	float u1, u2;
+	double u1, u2;
 	float u, v;
+	Geometry *geometry;
 };
 

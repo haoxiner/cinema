@@ -7,6 +7,7 @@ public:
 	Sphere(const Point &center, const double radius);
 	virtual ~Sphere();
 	virtual bool Intersect(const Ray &ray, double *t,Intersection *intersection);
+	virtual Vector GetNormal(const Point &point, const double u1, const double u2)const;
 private:
 	Point m_center;
 	double m_radius;
