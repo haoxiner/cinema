@@ -57,7 +57,12 @@ bool Triangle::Intersect(const Ray &ray, double *t, Intersection *intersection)
 	{
 		return false;
 	}
-	*t = Vector::Dot(s2, e2) / determinantOfCoefficient;
+	double tHit = Vector::Dot(s2, e2) / determinantOfCoefficient;
+	if (tHit <= 0)
+	{
+		return false;
+	}
+	*t = tHit;
 	intersection->u1 = b1;
 	intersection->u2 = b2;
 	intersection->geometry = this;

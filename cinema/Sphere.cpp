@@ -26,7 +26,6 @@ bool Sphere::Intersect(const Ray & ray, double * t, Intersection *intersection)
 		if (tHit > 0.0)
 		{
 			*t = tHit;
-			intersection->point = ray.GetPoint(*t);
 			intersection->geometry = this;
 			return true;
 		}

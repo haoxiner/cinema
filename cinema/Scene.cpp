@@ -18,25 +18,25 @@ Scene::Scene()
 	model->geometry = t;
 	models.push_back(model);*/
 
-	Sphere *s = new Sphere(Point(-10, 0, -5), 8);
+	Sphere *s = new Sphere(Point(-10, 0, -5), 5);
 	Model *model1 = new Model();
 	model1->geometry = s;
 	model1->bsdf = new SpecularReflection(Color(0,0,0));
 	model1->emit = 1.0;
 	models.push_back(model1);
 
-	//Sphere *s2(new Sphere(Point(10, 0, -5), 8));
-	//Model *m2(new Model);
-	//m2->geometry = s2;
-	//m2->bsdf = new DiffuseReflection(Color(0.5, 0, 0));
-	//models.push_back(m2);
+	Sphere *s2(new Sphere(Point(10, 0, -5), 8));
+	Model *m2(new Model);
+	m2->geometry = s2;
+	m2->bsdf = new DiffuseReflection(Color(0.5, 0, 0));
+	models.push_back(m2);
 
 	TriangleMesh *mesh = new TriangleMesh;
 	Model *model = new Model;
-	mesh->vertices.push_back(Point(30, 30, -20));
-	mesh->vertices.push_back(Point(30, -30, -20));
-	mesh->vertices.push_back(Point(-30, -30, -20));
-	mesh->vertices.push_back(Point(-30, 30, -20));
+	mesh->vertices.push_back(Point(-15, 15, -5));
+	mesh->vertices.push_back(Point(-20, -10, -5));
+	mesh->vertices.push_back(Point(5, -10, -5));
+	mesh->vertices.push_back(Point(-30, 30, -15));
 
 	mesh->indices.push_back(0); mesh->indices.push_back(0); mesh->indices.push_back(0);
 	mesh->indices.push_back(1); mesh->indices.push_back(0); mesh->indices.push_back(0);
@@ -52,6 +52,7 @@ Scene::Scene()
 	triangle.v = &mesh->indices[0];
 	mesh->triangles.push_back(triangle);
 	model->geometry = &mesh->triangles[0];
+	model->emit = Color(0.5, 0, 0);
 	models.push_back(model);
 }
 
@@ -83,6 +84,7 @@ bool Scene::Intersect(const Ray &ray, Intersection &intersection)
 	// if hit, shade
 	if (t < std::numeric_limits<double>::infinity())
 	{
+		intersection.point = ray.GetPoint(t);
 		intersection.normal = intersection.geometry->GetNormal(intersection.point, intersection.u1, intersection.u2).Normalize();
 		return true;
 	}
