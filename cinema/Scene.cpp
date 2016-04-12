@@ -65,7 +65,7 @@ Scene::~Scene()
 	}
 }
 
-bool Scene::Intersect(const Ray &ray, Intersection &intersection)
+bool Scene::Intersect(const Ray &ray, Intersection &intersection)const
 {
 	// final t
 	double t = std::numeric_limits<double>::infinity();
@@ -85,7 +85,7 @@ bool Scene::Intersect(const Ray &ray, Intersection &intersection)
 	if (t < std::numeric_limits<double>::infinity())
 	{
 		intersection.point = ray.GetPoint(t);
-		intersection.normal = intersection.geometry->GetNormal(intersection.point, intersection.u1, intersection.u2).Normalize();
+		intersection.normal = intersection.geometry->GetNormal(intersection).Normalize();
 		return true;
 	}
 	else

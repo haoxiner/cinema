@@ -153,8 +153,10 @@
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ObjLoader.cpp" />
+    <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Ray.cpp" />
+    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Sampler.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SpecularReflection.cpp" />
@@ -176,8 +178,10 @@
     <ClInclude Include="Material.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ObjLoader.h" />
+    <ClInclude Include="Parser.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Ray.h" />
+    <ClInclude Include="Renderer.h" />
     <ClInclude Include="Sampler.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="ShadingGeometry.h" />
@@ -188,6 +192,12 @@
     <ClInclude Include="TriangleMesh.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="vertex.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="mesh.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="scene01.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

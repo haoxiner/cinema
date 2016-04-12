@@ -33,7 +33,7 @@ bool Sphere::Intersect(const Ray & ray, double * t, Intersection *intersection)
 	return false;
 }
 
-Vector Sphere::GetNormal(const Point & point, const double u1, const double u2)const
+Vector Sphere::GetNormal(const Intersection & intersection)const
 {
-	return point - m_center;
+	return intersection.point - m_center;
 }

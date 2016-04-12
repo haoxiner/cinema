@@ -12,7 +12,7 @@ SpecularReflection::~SpecularReflection()
 {
 }
 
-Color SpecularReflection::f(const Vector & normal, const Vector & wo, Vector * wi, double * pdf, Sampler *sampler)
+Color SpecularReflection::f(const Vector & normal, const Vector & wo, Vector * wi, double * pdf, Sampler &sampler)
 {
 	*wi = normal * (2 * Vector::Dot(wo, normal)) - wo;
 	*pdf = 1.0f;

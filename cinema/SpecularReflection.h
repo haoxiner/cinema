@@ -6,6 +6,6 @@ public:
 	SpecularReflection();
 	SpecularReflection(const Color &color);
 	~SpecularReflection();
-	virtual Color f(const Vector &normal, const Vector &wo, Vector *wi, double *pdf, Sampler *sampler);
+	virtual Color f(const Vector &normal, const Vector &wo, Vector *wi, double *pdf, Sampler &sampler);
 };
 

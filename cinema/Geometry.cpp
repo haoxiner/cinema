@@ -9,7 +9,7 @@ Geometry::~Geometry()
 
 }
 
-Vector Geometry::GetNormal(const Point & point, const double u1, const double u2) const
+Vector Geometry::GetNormal(const Intersection & intersection) const
 {
 	return Vector();
 }
