@@ -10,9 +10,10 @@ public:
 	Renderer(unsigned int bounceDepth,unsigned int samplesPerPixel);
 	~Renderer();
 	Color Render(const Ray &cameraRay, const Scene &scene);
-private:
-	Sampler *sampler;
-	unsigned int m_bounceDepth;
+	void SetSampler(Sampler *sampler);
 	unsigned int m_samplesPerPixel;
+private:
+	Sampler *m_sampler;
+	unsigned int m_bounceDepth;
 };
 

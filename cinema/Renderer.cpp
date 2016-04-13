@@ -7,7 +7,7 @@
 #include "Sampler.h"
 #include <cmath>
 
-Renderer::Renderer(unsigned int bounceDepth, unsigned int samplesPerPixel):sampler(new Sampler),m_bounceDepth(5),
+Renderer::Renderer(unsigned int bounceDepth, unsigned int samplesPerPixel):m_sampler(nullptr),m_bounceDepth(bounceDepth),
 m_samplesPerPixel(samplesPerPixel)
 {
 }
@@ -32,10 +32,19 @@ Color Renderer::Render(const Ray & cameraRay, const Scene &scene)
 		{
 			break;
 		}
-		color += pathColor*intersection.model->emit;
+		color += pathColor*(intersection.model->emit);
+		if (intersection.model->emit.r != 0)
+		{
+			break;
+		}
 		double pdf;
-		Color brdf = intersection.model->bsdf->f(intersection.normal, wo.Normalize(), &wi, &pdf, *sampler);
-		pathColor *= (brdf*std::abs(Vector::Dot(intersection.normal, wi.Normalize())));
+		if (Vector::Dot(intersection.normal, wo) < 0)
+		{
+			intersection.normal = -intersection.normal;
+		}
+		Color brdf = intersection.model->bsdf->f(intersection.normal, wo.Normalize(), &wi, &pdf, *m_sampler);
+		double wiDotN = Vector::Dot(intersection.normal, wi.Normalize());
+		pathColor *= (brdf*std::abs(wiDotN));
 		if (bounces < m_bounceDepth)
 		{
 			ray.o = intersection.point;
@@ -48,4 +57,9 @@ Color Renderer::Render(const Ray & cameraRay, const Scene &scene)
 		}
 	}
 	return color;
+}
+
+void Renderer::SetSampler(Sampler * sampler)
+{
+	m_sampler = sampler;
 }

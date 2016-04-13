@@ -21,8 +21,7 @@ int main(int argc, char *argv[])
 	TestRender();
 	return 0;
 }
-#include "Sphere.h"
-#include "DiffuseReflection.h"
+
 void TestRender()
 {
 	Parser parser;
@@ -31,14 +30,31 @@ void TestRender()
 	Camera *camera = parser.GetCamera();
 	Renderer *renderer = parser.GetRenderer();
 	Scene *scene = parser.GetScene();
-	for (int i = 0; i < 800; ++i)
+	Sampler sampler;
+	renderer->SetSampler(&sampler);
+	int spp = static_cast<int>(renderer->m_samplesPerPixel);
+	double step = 1.0 / spp;
+
+	auto halfwidth = image->xResolution / 2;
+	auto halfHeight = image->yResolution / 2;
+	for (int i = 0; i < image->xResolution; ++i)
 	{
-		for (int j = 0; j < 600; ++j)
+		for (int j = 0; j < image->yResolution; ++j)
 		{
-			Ray ray = camera->GenerateRay(static_cast<double>(i-400) / 400.0, static_cast<double>(j-300) / 300.0);
-			Color color = renderer->Render(ray,*scene);
-			image->SetColor(i, j, color);
+			Color pixel;
+			for (int k = 0; k < spp; ++k)
+			{
+				double subI = i + k*step + sampler.GetDouble()*step;
+				double subJ = j + k*step + sampler.GetDouble()*step;
+				double x = static_cast<double>(subI - static_cast<double>(halfwidth)) / static_cast<double>(halfwidth);
+				double y = static_cast<double>(subJ - static_cast<double>(halfHeight)) / static_cast<double>(halfHeight);
+				Ray ray = camera->GenerateRay(x, y);
+				pixel += renderer->Render(ray, *scene) * step;
+			}
+			image->SetColor(i, j, pixel);
 		}
+		fprintf(stderr, "%d\n", i);
+		fflush(stderr);
 	}
 	image->WriteToFile("E:/result.bmp");
 }

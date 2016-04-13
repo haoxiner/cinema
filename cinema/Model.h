@@ -5,7 +5,7 @@
 #include <vector>
 class Ray;
 class Intersection;
-
+class Material;
 class Model
 {
 public:

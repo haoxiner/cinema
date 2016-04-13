@@ -9,10 +9,10 @@ public:
 	~Image();
 	void SetColor(const unsigned int x, const unsigned int y, const Color &color);
 	void WriteToFile(const std::string filename);
+	const unsigned int xResolution;
+	const unsigned int yResolution;
 private:
 	uint8_t *m_data;
-	const unsigned int m_xResolution;
-	const unsigned int m_yResolution;
 };
 
 

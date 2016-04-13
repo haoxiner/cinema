@@ -6,7 +6,7 @@
 #pragma pack(2)
 
 Image::Image(unsigned int width, unsigned int height):
-	m_xResolution(width),m_yResolution(height),
+	xResolution(width),yResolution(height),
 	m_data(new uint8_t[width * height * 3])
 {
 }
@@ -16,14 +16,26 @@ Image::~Image()
 	delete m_data;
 }
 
+inline double CLAMP_COLOR(double value)
+{
+	if (value < 0.0)
+	{
+		return 0.0;
+	}
+	else if (value > 1.0)
+	{
+		return 1.0;
+	}
+	return value;
+}
 void Image::SetColor(unsigned int x, unsigned int y, const Color &color)
 {
-	uint8_t *location = m_data + y * m_xResolution * 3 + x * 3;
-	*location = static_cast<unsigned int>(color.b * 255);
+	uint8_t *location = m_data + y * xResolution * 3 + x * 3;
+	*location = static_cast<unsigned int>(CLAMP_COLOR(color.b) * 255);
 	++location;
-	*location = static_cast<unsigned int>(color.g * 255);
+	*location = static_cast<unsigned int>(CLAMP_COLOR(color.g) * 255);
 	++location;
-	*location = static_cast<unsigned int>(color.r * 255);
+	*location = static_cast<unsigned int>(CLAMP_COLOR(color.r) * 255);
 }
 
 typedef struct tagBITMAPFILEHEADER
@@ -92,15 +104,15 @@ void Image::WriteToFile(const std::string filename)
 {
 	BITMAPFILEHEADER header;
 	header.bfType = 0x4D42;
-	header.bfSize = 54 + m_xResolution*m_yResolution * 3; //size of this bmp (Byte)
+	header.bfSize = 54 + xResolution*yResolution * 3; //size of this bmp (Byte)
 	header.bfReserved1 = 0;
 	header.bfReserved2 = 0;
 	header.bfOffBits = 54; // offbit from 0000h to imagedata
 
 	BMP_INFOHEADER info;
 	info.biSize = 40;
-	info.biWidth = m_xResolution;
-	info.biHeight = m_yResolution;
+	info.biWidth = xResolution;
+	info.biHeight = yResolution;
 	info.biPlanes = 1;
 	info.biBitCount = 24;
 	info.biCompression = 0;
@@ -114,7 +126,7 @@ void Image::WriteToFile(const std::string filename)
 	file.open(filename, std::ios::binary | std::ios::trunc);
 	file.write((char *)&header, sizeof(header));
 	file.write((char *)&info, sizeof(info));
-	file.write((char *)m_data, m_xResolution*m_yResolution * 3);
+	file.write((char *)m_data, xResolution*yResolution * 3);
 	
 	file.close();
 }

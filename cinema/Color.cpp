@@ -5,14 +5,14 @@ const Color Color::WHITE = Color(1.0f, 1.0f, 1.0f);
 
 inline double CLAMP_COLOR(double value)
 {
-	if (value < 0.0)
+	/*if (value < 0.0)
 	{
 		return 0.0;
 	}
 	else if (value > 1.0)
 	{
 		return 1.0;
-	}
+	}*/
 	return value;
 }
 
