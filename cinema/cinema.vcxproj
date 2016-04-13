@@ -151,6 +151,7 @@
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Intersection.cpp" />
     <ClCompile Include="Material.cpp" />
+    <ClCompile Include="MeshParser.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ObjLoader.cpp" />
     <ClCompile Include="Parser.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="Intersection.h" />
     <ClInclude Include="Material.h" />
+    <ClInclude Include="MeshParser.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ObjLoader.h" />
     <ClInclude Include="Parser.h" />
@@ -194,10 +196,16 @@
     <ClInclude Include="vertex.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="mesh.obj" />
+    <Xml Include="scene01.xml">
+      <SubType>Designer</SubType>
+    </Xml>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="scene01.xml" />
+    <Text Include="backwall.txt" />
+    <Text Include="ceiling.txt" />
+    <Text Include="floor.txt" />
+    <Text Include="leftwall.txt" />
+    <Text Include="rightwall.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

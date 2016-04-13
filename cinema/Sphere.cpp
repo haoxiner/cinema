@@ -37,3 +37,4 @@ Vector Sphere::GetNormal(const Intersection & intersection)const
 {
 	return intersection.point - m_center;
 }
+

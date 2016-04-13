@@ -2,6 +2,7 @@
 #include "Material.h"
 #include "Geometry.h"
 #include "Color.h"
+#include <vector>
 class Ray;
 class Intersection;
 
@@ -10,10 +11,12 @@ class Model
 public:
 	Model();
 	~Model();
-	bool Intersect(const Ray &ray, double *t, Intersection *intersection);
 	// one material per model.
 	BSDF *bsdf;
 	Color emit;
-	Geometry *geometry;
+	void GetGeometries(std::vector<Geometry*> *geometries);
+	void AddGeometry(Geometry *geometry);
+private:
+	std::vector<Geometry*> m_geometries;
 };
 

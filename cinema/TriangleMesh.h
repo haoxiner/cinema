@@ -5,7 +5,7 @@
 #include "Vector.h"
 #include "Triangle.h"
 
-class TriangleMesh
+class TriangleMesh : public Geometry
 {
 public:
 	TriangleMesh();
@@ -15,4 +15,6 @@ public:
 	std::vector<Vector> normals;
 	std::vector<float> uvs;
 	std::vector<Triangle> triangles;
+	void MakeTriangles();
+	virtual void Extract(std::vector<Geometry*> *geometries);
 };

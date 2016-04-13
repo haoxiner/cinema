@@ -1,24 +1,27 @@
 #include "Model.h"
 #include "Intersection.h"
-Model::Model():geometry(nullptr)
+
+Model::Model()
 {
 }
 
 Model::~Model()
 {
-	if (geometry != nullptr)
-	{
-		delete geometry;
-	}
 }
 
-bool Model::Intersect(const Ray &ray, double *t, Intersection *intersection)
+void Model::GetGeometries(std::vector<Geometry*> *geometries)
 {
-	if (geometry->Intersect(ray, t, intersection))
+	for (auto geometry : m_geometries)
 	{
-		intersection->model = this;
-		return true;
+		geometry->Extract(geometries);
 	}
-	return false;
+	
 }
+
+void Model::AddGeometry(Geometry * geometry)
+{
+	geometry->model = this;
+	m_geometries.push_back(geometry);
+}
+
 

@@ -21,6 +21,8 @@ int main(int argc, char *argv[])
 	TestRender();
 	return 0;
 }
+#include "Sphere.h"
+#include "DiffuseReflection.h"
 void TestRender()
 {
 	Parser parser;
@@ -28,7 +30,7 @@ void TestRender()
 	Image *image = parser.GetImage();
 	Camera *camera = parser.GetCamera();
 	Renderer *renderer = parser.GetRenderer();
-	Scene *scene = new Scene;
+	Scene *scene = parser.GetScene();
 	for (int i = 0; i < 800; ++i)
 	{
 		for (int j = 0; j < 600; ++j)

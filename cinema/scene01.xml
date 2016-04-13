@@ -6,15 +6,31 @@
   </renderer>
   <camera>
     <resolution>800,600</resolution>
-    <position>0,0,15</position>
-    <focus>0,0,0</focus>
+    <position>0,5,5</position>
+    <focus>0,5,0</focus>
     <up>0,1,0</up>
     <fov>90</fov>
   </camera>
   <scene>
     <model>
       <material>matte</material>
-      <mesh>mesh.obj</mesh>
+      <mesh>backwall.txt</mesh>
+      <sphere>
+        <center>0,8,-3</center>
+        <radius>1</radius>
+      </sphere>
+    </model>
+    <model>
+      <mesh>leftwall.txt</mesh>
+    </model>
+    <model>
+      <mesh>rightwall.txt</mesh>
+    </model>
+    <model>
+      <mesh>ceiling.txt</mesh>
+    </model>
+    <model>
+      <mesh>floor.txt</mesh>
     </model>
   </scene>
 </cinema>

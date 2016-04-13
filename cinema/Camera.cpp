@@ -16,9 +16,9 @@ Camera::Camera(const Point & position, const Point & focus, const Vector & up,
 	double fieldOfView, double aspect):
 	m_position(position), m_aspect(aspect), m_distance(1.0f / std::tan(fieldOfView / 180.0f*PI / 2.0f))
 {
-	Vector egaze = -Vector::Normalize(focus - position);
+	Vector egaze = Vector::Normalize(position - focus);
 	Vector eright = Vector::Normalize(Vector::Cross(Vector::Normalize(up), egaze));
-	Vector eup = Vector::Cross(egaze, eright);
+	Vector eup = Vector::Cross(egaze, eright).Normalize();
 
 	m_cameraToWorld.SetMatrix(
 		eright.x, eup.x, egaze.x, position.x,

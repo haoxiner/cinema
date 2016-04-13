@@ -20,6 +20,7 @@ private:
 	void SkipSpace();
 	double ParseDouble();
 	int ParseInteger();
+	std::string ParseString();
 	void ParseTripleDouble(double *x, double *y, double *z);
 	void ParseCamera();
 	void ParseRenderer();

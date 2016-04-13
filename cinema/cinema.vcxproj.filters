@@ -105,6 +105,9 @@
     <ClCompile Include="Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MeshParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vertex.h">
@@ -179,6 +182,9 @@
     <ClInclude Include="Renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MeshParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="scene01.xml">
@@ -186,7 +192,19 @@
     </Xml>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="mesh.obj">
+    <Text Include="backwall.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="leftwall.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="ceiling.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="floor.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="rightwall.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
