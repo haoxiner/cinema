@@ -235,10 +235,12 @@ void Parser::ParseScene()
 						tag = NextTag();
 						if (tag == "center")
 						{
+							SkipSpace();
 							ParseTripleDouble(&center.x, &center.y, &center.z);
 						}
 						else if (tag == "radius")
 						{
+							SkipSpace();
 							radius = ParseDouble();
 						}
 						else if (tag == "/sphere")
@@ -249,20 +251,19 @@ void Parser::ParseScene()
 						}
 					}
 				}
-				else if (tag == "material")
+				else if (tag == "diffuse")
 				{
-					std::string type = ParseString();
-					if (type == "diffuse")
-					{
-						model->bsdf = new DiffuseReflection(Color(1, 1, 1));
-					}
-					else if (type == "emit")
-					{
-						model->bsdf = new SpecularReflection(Color(1, 1, 1));
-						model->emit.r = 12;
-						model->emit.g = 12;
-						model->emit.b = 12;
-					}
+					Color diffuse;
+					SkipSpace();
+					ParseTripleDouble(&diffuse.r, &diffuse.g, &diffuse.b);
+					model->bsdf = new DiffuseReflection(diffuse);
+				}
+				else if (tag == "emit")
+				{
+					Color emit;
+					SkipSpace();
+					ParseTripleDouble(&emit.r, &emit.g, &emit.b);
+					model->emit = emit;
 				}
 				else if (tag == "/model")
 				{

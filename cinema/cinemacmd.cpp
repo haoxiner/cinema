@@ -34,7 +34,7 @@ void TestRender()
 	renderer->SetSampler(&sampler);
 	int spp = static_cast<int>(renderer->m_samplesPerPixel);
 	double step = 1.0 / spp;
-
+	int count = 0, total = static_cast<int>(image->xResolution * image->yResolution);
 	auto halfwidth = image->xResolution / 2;
 	auto halfHeight = image->yResolution / 2;
 	for (int i = 0; i < image->xResolution; ++i)
@@ -51,10 +51,10 @@ void TestRender()
 				Ray ray = camera->GenerateRay(x, y);
 				pixel += renderer->Render(ray, *scene) * step;
 			}
+			++count;
 			image->SetColor(i, j, pixel);
+			fprintf(stderr, "\rprocess: %.2f%%", count/static_cast<float>(total)*100);
 		}
-		fprintf(stderr, "%d\n", i);
-		fflush(stderr);
 	}
 	image->WriteToFile("E:/result.bmp");
 }

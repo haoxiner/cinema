@@ -207,7 +207,13 @@
     <Text Include="rightwall.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="arealight.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
     <Text Include="light.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="lightedge.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

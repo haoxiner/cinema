@@ -2,7 +2,7 @@
 <cinema>
   <renderer>
     <bounce>15</bounce>
-    <sample>1000</sample>
+    <sample>64</sample>
   </renderer>
   <camera>
     <resolution>400,300</resolution>
@@ -13,27 +13,45 @@
   </camera>
   <scene>
     <model>
-      <material>emit</material>
-      <mesh>light.txt</mesh>
+      <emit>12,12,12</emit>
+      <mesh>arealight.txt</mesh>
     </model>
     <model>
-      <material>diffuse</material>
+      <diffuse>0.8,0.8,0.8</diffuse>
+      <mesh>lightedge.txt</mesh>
+    </model>
+    <model>
+      <diffuse>0.2,0.8,0.2</diffuse>
+      <sphere>
+        <center>-2.385,1.6,-1.56</center>
+        <radius>1.6</radius>
+      </sphere>
+    </model>
+    <model>
+      <diffuse>0.2,0.8,0.2</diffuse>
+      <sphere>
+        <center>2.24,1.6,1.926</center>
+        <radius>1.6</radius>
+      </sphere>
+    </model>
+    <model>
+      <diffuse>0.8,0.8,0.8</diffuse>
       <mesh>backwall.txt</mesh>
     </model>
     <model>
-      <material>diffuse</material>
+      <diffuse>0.8,0.2,0.2</diffuse>
       <mesh>leftwall.txt</mesh>
     </model>
     <model>
-      <material>diffuse</material>
+      <diffuse>0.2,0.2,0.8</diffuse>
       <mesh>rightwall.txt</mesh>
     </model>
     <model>
-      <material>diffuse</material>
+      <diffuse>0.8,0.8,0.8</diffuse>
       <mesh>ceiling.txt</mesh>
     </model>
     <model>
-      <material>diffuse</material>
+      <diffuse>0.8,0.8,0.8</diffuse>
       <mesh>floor.txt</mesh>
     </model>
   </scene>

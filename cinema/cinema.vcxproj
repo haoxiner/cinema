@@ -201,11 +201,13 @@
     </Xml>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="arealight.txt" />
     <Text Include="backwall.txt" />
     <Text Include="ceiling.txt" />
     <Text Include="floor.txt" />
     <Text Include="leftwall.txt" />
     <Text Include="light.txt" />
+    <Text Include="lightedge.txt" />
     <Text Include="rightwall.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

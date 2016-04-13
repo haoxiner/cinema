@@ -3,6 +3,7 @@
 
 Model::Model()
 {
+	emit = 0.0;
 }
 
 Model::~Model()

@@ -32,7 +32,7 @@ Color Renderer::Render(const Ray & cameraRay, const Scene &scene)
 		{
 			break;
 		}
-		color += pathColor*(intersection.model->emit);
+		color += pathColor*(Vector::Dot(intersection.normal, wo) > 0 ? intersection.model->emit : 0);
 		if (intersection.model->emit.r != 0)
 		{
 			break;

@@ -28,14 +28,19 @@ inline double CLAMP_COLOR(double value)
 	}
 	return value;
 }
+inline int TO_INT(double x)
+{
+	int ret = int(pow(CLAMP_COLOR(x), 1 / 2.2) * 255 + .5);
+	return(ret > 255 ? 255 : ret);
+}
 void Image::SetColor(unsigned int x, unsigned int y, const Color &color)
 {
 	uint8_t *location = m_data + y * xResolution * 3 + x * 3;
-	*location = static_cast<unsigned int>(CLAMP_COLOR(color.b) * 255);
+	*location = static_cast<unsigned int>(TO_INT(color.b));
 	++location;
-	*location = static_cast<unsigned int>(CLAMP_COLOR(color.g) * 255);
+	*location = static_cast<unsigned int>(TO_INT(color.g));
 	++location;
-	*location = static_cast<unsigned int>(CLAMP_COLOR(color.r) * 255);
+	*location = static_cast<unsigned int>(TO_INT(color.r));
 }
 
 typedef struct tagBITMAPFILEHEADER
