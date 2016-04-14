@@ -31,6 +31,12 @@
     <Filter Include="Header Files\model">
       <UniqueIdentifier>{ed1806a0-73cb-4f0b-84ad-0e4ebfe0f2a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\scene01">
+      <UniqueIdentifier>{70866e75-94a8-4342-88fc-78199ebb0511}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\scene02">
+      <UniqueIdentifier>{3f5b4f10-f4e5-46a7-8e62-e2ed27c5f156}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vertex.cpp">
@@ -199,37 +205,55 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="scene01.xml">
-      <Filter>Resource Files</Filter>
-    </Xml>
     <Xml Include="test.xml">
       <Filter>Resource Files</Filter>
     </Xml>
+    <Xml Include="scene01.xml">
+      <Filter>Resource Files\scene01</Filter>
+    </Xml>
+    <Xml Include="scene02.xml">
+      <Filter>Resource Files\scene02</Filter>
+    </Xml>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="backwall.txt">
-      <Filter>Resource Files</Filter>
+    <Text Include="arealight.txt">
+      <Filter>Resource Files\scene01</Filter>
     </Text>
-    <Text Include="leftwall.txt">
-      <Filter>Resource Files</Filter>
+    <Text Include="backwall.txt">
+      <Filter>Resource Files\scene01</Filter>
     </Text>
     <Text Include="ceiling.txt">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\scene01</Filter>
     </Text>
     <Text Include="floor.txt">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\scene01</Filter>
     </Text>
-    <Text Include="rightwall.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="arealight.txt">
-      <Filter>Resource Files</Filter>
+    <Text Include="leftwall.txt">
+      <Filter>Resource Files\scene01</Filter>
     </Text>
     <Text Include="light.txt">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\scene01</Filter>
     </Text>
     <Text Include="lightedge.txt">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\scene01</Filter>
+    </Text>
+    <Text Include="rightwall.txt">
+      <Filter>Resource Files\scene01</Filter>
+    </Text>
+    <Text Include="block0.txt">
+      <Filter>Resource Files\scene02</Filter>
+    </Text>
+    <Text Include="block1.txt">
+      <Filter>Resource Files\scene02</Filter>
+    </Text>
+    <Text Include="block2.txt">
+      <Filter>Resource Files\scene02</Filter>
+    </Text>
+    <Text Include="block3.txt">
+      <Filter>Resource Files\scene02</Filter>
+    </Text>
+    <Text Include="wall.txt">
+      <Filter>Resource Files\scene02</Filter>
     </Text>
   </ItemGroup>
 </Project>

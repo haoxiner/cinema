@@ -35,7 +35,7 @@ Color BlinnGlossy::f(const Vector & normal, const Vector & wo, Vector * wi, doub
 	const double u1 = sampler.GetDouble();
 	const double u2 = sampler.GetDouble();
 	const double cosTheta = std::pow(u1, 1.0 / (m_exponent + 1));
-	const double sinTheta = std::sqrt(std::fmax(0, 1 - u1*u1));
+	const double sinTheta = std::sqrt(std::fmax(0, 1 - cosTheta*cosTheta));
 	const double phi = 2 * u2 * M_PI;
 
 	Vector h = (tangent*(sinTheta*std::cos(phi)) + bitangent*(sinTheta*std::sin(phi)) + normal*cosTheta).Normalize();
@@ -52,5 +52,6 @@ Color BlinnGlossy::f(const Vector & normal, const Vector & wo, Vector * wi, doub
 	{
 		*pdf = ((m_exponent + 1.0)*std::pow(cosTheta, m_exponent)) / (2.0*M_PI*4.0*Vector::Dot(wo, h));
 	}
+	//*pdf = 1.0;
 	return m_color;
 }

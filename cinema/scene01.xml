@@ -2,7 +2,7 @@
 <cinema>
   <renderer>
     <bounce>5</bounce>
-    <sample>128</sample>
+    <sample>32</sample>
   </renderer>
   <camera>
     <resolution>480,360</resolution>
@@ -13,7 +13,10 @@
   </camera>
   <scene>
     <model>
-      <emit>12,12,12</emit>
+      <emit>
+        <color>1,1,1</color>
+        <scale>12</scale>
+      </emit>
       <mesh>arealight.txt</mesh>
     </model>
     <model>
@@ -30,7 +33,7 @@
     <model>
       <blinn>
         <color>0.7,0.7,0.7</color>
-        <exponent>10</exponent>
+        <exponent>0.8</exponent>
       </blinn>
       <sphere>
         <center>2.24,1.6,1.926</center>

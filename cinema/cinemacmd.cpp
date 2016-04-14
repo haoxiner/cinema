@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 void TestRender()
 {
 	Parser parser;
-	parser.Parse("scene01.xml");
+	parser.Parse("scene02.xml");
 	Image *image = parser.GetImage();
 	Camera *camera = parser.GetCamera();
 	Renderer *renderer = parser.GetRenderer();
@@ -51,9 +51,9 @@ void TestRender()
 				Ray ray = camera->GenerateRay(x, y);
 				pixel += renderer->Render(ray, *scene) * step;
 			}
-			++count;
 			image->SetColor(i, j, pixel);
 		}
+		count += static_cast<int>(image->yResolution);
 		fprintf(stderr, "\rprocess: %.2f%%", count / static_cast<float>(total) * 100);
 	}
 	for (int i = 0; i < static_cast<int>(image->xResolution); i++)

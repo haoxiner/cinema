@@ -293,8 +293,24 @@ void Parser::ParseScene()
 				else if (tag == "emit")
 				{
 					Color emit;
-					SkipSpace();
-					ParseTripleDouble(&emit.r, &emit.g, &emit.b);
+					while (HasNextTag())
+					{
+						tag = NextTag();
+						if (tag == "color")
+						{
+							SkipSpace();
+							ParseTripleDouble(&emit.r, &emit.g, &emit.b);
+						}
+						else if (tag == "scale")
+						{
+							SkipSpace();
+							emit *= ParseDouble();
+						}
+						else if (tag == "/emit")
+						{
+							break;
+						}
+					}
 					model->emit = emit;
 					model->bsdf = new SpecularReflection(Color::WHITE);
 				}

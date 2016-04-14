@@ -203,17 +203,23 @@
     <Xml Include="scene01.xml">
       <SubType>Designer</SubType>
     </Xml>
+    <Xml Include="scene02.xml" />
     <Xml Include="test.xml" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="arealight.txt" />
     <Text Include="backwall.txt" />
+    <Text Include="block0.txt" />
+    <Text Include="block1.txt" />
+    <Text Include="block2.txt" />
+    <Text Include="block3.txt" />
     <Text Include="ceiling.txt" />
     <Text Include="floor.txt" />
     <Text Include="leftwall.txt" />
     <Text Include="light.txt" />
     <Text Include="lightedge.txt" />
     <Text Include="rightwall.txt" />
+    <Text Include="wall.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
