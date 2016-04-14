@@ -152,6 +152,7 @@
     <ClCompile Include="Intersection.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MeshParser.cpp" />
+    <ClCompile Include="BlinnGlossy.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ObjLoader.cpp" />
     <ClCompile Include="Parser.cpp" />
@@ -161,6 +162,7 @@
     <ClCompile Include="Sampler.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SpecularReflection.cpp" />
+    <ClCompile Include="SpecularTransmission.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Triangle.cpp" />
@@ -178,6 +180,7 @@
     <ClInclude Include="Intersection.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MeshParser.h" />
+    <ClInclude Include="BlinnGlossy.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ObjLoader.h" />
     <ClInclude Include="Parser.h" />
@@ -188,6 +191,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="ShadingGeometry.h" />
     <ClInclude Include="SpecularReflection.h" />
+    <ClInclude Include="SpecularTransmission.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Triangle.h" />
@@ -199,6 +203,7 @@
     <Xml Include="scene01.xml">
       <SubType>Designer</SubType>
     </Xml>
+    <Xml Include="test.xml" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="arealight.txt" />

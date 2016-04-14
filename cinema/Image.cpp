@@ -32,6 +32,7 @@ inline int TO_INT(double x)
 {
 	int ret = int(pow(CLAMP_COLOR(x), 1 / 2.2) * 255 + .5);
 	return(ret > 255 ? 255 : ret);
+	//return CLAMP_COLOR(x) * 255;
 }
 void Image::SetColor(unsigned int x, unsigned int y, const Color &color)
 {

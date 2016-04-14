@@ -6,6 +6,7 @@
 #include "Model.h"
 #include "SpecularReflection.h"
 #include "DiffuseReflection.h"
+#include "BlinnGlossy.h"
 #include "MeshParser.h"
 #include "Sphere.h"
 #include <fstream>
@@ -258,12 +259,44 @@ void Parser::ParseScene()
 					ParseTripleDouble(&diffuse.r, &diffuse.g, &diffuse.b);
 					model->bsdf = new DiffuseReflection(diffuse);
 				}
+				else if (tag == "specular")
+				{
+					Color specular;
+					SkipSpace();
+					ParseTripleDouble(&specular.r, &specular.g, &specular.b);
+					model->bsdf = new SpecularReflection(specular);
+				}
+				else if (tag == "blinn")
+				{
+					Color color;
+					double exponent;
+					while (HasNextTag())
+					{
+						tag = NextTag();
+						if (tag == "color")
+						{
+							SkipSpace();
+							ParseTripleDouble(&color.r, &color.g, &color.b);
+						}
+						else if (tag == "exponent")
+						{
+							SkipSpace();
+							exponent = ParseDouble();
+						}
+						else if (tag == "/blinn")
+						{
+							model->bsdf = new BlinnGlossy(color, exponent);
+							break;
+						}
+					}
+				}
 				else if (tag == "emit")
 				{
 					Color emit;
 					SkipSpace();
 					ParseTripleDouble(&emit.r, &emit.g, &emit.b);
 					model->emit = emit;
+					model->bsdf = new SpecularReflection(Color::WHITE);
 				}
 				else if (tag == "/model")
 				{

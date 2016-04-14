@@ -37,9 +37,9 @@ void TestRender()
 	int count = 0, total = static_cast<int>(image->xResolution * image->yResolution);
 	auto halfwidth = image->xResolution / 2;
 	auto halfHeight = image->yResolution / 2;
-	for (int i = 0; i < image->xResolution; ++i)
+	for (int i = 0; i < static_cast<int>(image->xResolution); ++i)
 	{
-		for (int j = 0; j < image->yResolution; ++j)
+		for (int j = 0; j < static_cast<int>(image->yResolution); ++j)
 		{
 			Color pixel;
 			for (int k = 0; k < spp; ++k)
@@ -53,8 +53,18 @@ void TestRender()
 			}
 			++count;
 			image->SetColor(i, j, pixel);
-			fprintf(stderr, "\rprocess: %.2f%%", count/static_cast<float>(total)*100);
 		}
+		fprintf(stderr, "\rprocess: %.2f%%", count / static_cast<float>(total) * 100);
+	}
+	for (int i = 0; i < static_cast<int>(image->xResolution); i++)
+	{
+		image->SetColor(i, 0, Color::WHITE);
+		image->SetColor(i, image->yResolution - 1, Color::WHITE);
+	}
+	for (int i = 0; i < static_cast<int>(image->yResolution); i++)
+	{
+		image->SetColor(0, i, Color::WHITE);
+		image->SetColor(image->xResolution - 1, i, Color::WHITE);
 	}
 	image->WriteToFile("E:/result.bmp");
 }

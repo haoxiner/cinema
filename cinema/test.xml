@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cinema>
+  <renderer>
+    <bounce>15</bounce>
+    <sample>16</sample>
+  </renderer>
+  <camera>
+    <resolution>400,400</resolution>
+    <position>0,4.8,15</position>
+    <focus>0,4.8,0</focus>
+    <up>0,1,0</up>
+    <fov>54.43</fov>
+  </camera>
+  <scene>
+    <model>
+      <emit>12,12,12</emit>
+      <mesh>arealight.txt</mesh>
+    </model>
+    <model>
+      <diffuse>0.8,0.8,0.8</diffuse>
+      <mesh>backwall.txt</mesh>
+    </model>
+  </scene>
+</cinema>

@@ -72,9 +72,6 @@
     <ClCompile Include="BSDF.cpp">
       <Filter>Source Files\bxdf</Filter>
     </ClCompile>
-    <ClCompile Include="SpecularReflection.cpp">
-      <Filter>Source Files\bxdf</Filter>
-    </ClCompile>
     <ClCompile Include="Sampler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -107,6 +104,15 @@
     </ClCompile>
     <ClCompile Include="MeshParser.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SpecularTransmission.cpp">
+      <Filter>Source Files\bxdf</Filter>
+    </ClCompile>
+    <ClCompile Include="SpecularReflection.cpp">
+      <Filter>Source Files\bxdf</Filter>
+    </ClCompile>
+    <ClCompile Include="BlinnGlossy.cpp">
+      <Filter>Source Files\bxdf</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -185,9 +191,18 @@
     <ClInclude Include="MeshParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SpecularTransmission.h">
+      <Filter>Header Files\bxdf</Filter>
+    </ClInclude>
+    <ClInclude Include="BlinnGlossy.h">
+      <Filter>Header Files\bxdf</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="scene01.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="test.xml">
       <Filter>Resource Files</Filter>
     </Xml>
   </ItemGroup>

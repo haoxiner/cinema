@@ -2,7 +2,7 @@
 #include "Ray.h"
 #include <cmath>
 
-#define PI 3.14159265f
+#define PI 3.14159265358979323846
 
 Camera::Camera()
 {
@@ -14,11 +14,11 @@ Camera::~Camera()
 
 Camera::Camera(const Point & position, const Point & focus, const Vector & up, 
 	double fieldOfView, double aspect):
-	m_position(position), m_aspect(aspect), m_distance(1.0f / std::tan(fieldOfView / 180.0f*PI / 2.0f))
+	m_position(position), m_aspect(aspect), m_distance(1.0f / std::tan(fieldOfView / 180.0*PI / 2.0))
 {
 	Vector egaze = Vector::Normalize(position - focus);
 	Vector eright = Vector::Normalize(Vector::Cross(Vector::Normalize(up), egaze));
-	Vector eup = Vector::Cross(egaze, eright).Normalize();
+	Vector eup = Vector::Cross(egaze, eright);
 
 	m_cameraToWorld.SetMatrix(
 		eright.x, eup.x, egaze.x, position.x,
