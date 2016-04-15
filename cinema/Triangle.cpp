@@ -43,7 +43,8 @@ bool Triangle::Intersect(const Ray &ray, double *t, Intersection *intersection)
 		return false;
 	}
 	double tHit = Vector::Dot(s2, e2) / determinantOfCoefficient;
-	if (tHit <= 0)
+	// This shit cannot be lower than 0.0 which must not be zero !!!
+	if (tHit <= 1e-6)
 	{
 		return false;
 	}
@@ -56,5 +57,6 @@ bool Triangle::Intersect(const Ray &ray, double *t, Intersection *intersection)
 
 Vector Triangle::GetNormal(const Intersection & intersection) const
 {
-	return mesh->normals[v[2]] * intersection.u1 + mesh->normals[v[5]] * intersection.u2 + mesh->normals[v[8]] * (1 - intersection.u1 - intersection.u2);
+	double b3 = 1 - intersection.u1 - intersection.u2;
+	return mesh->normals[v[2]] * intersection.u1 + mesh->normals[v[5]] * intersection.u2 + mesh->normals[v[8]] * (b3 > 0 ? b3 : 0);
 }

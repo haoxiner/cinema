@@ -1,13 +1,17 @@
 #include "Sampler.h"
-#include <random>
-#include <ctime>
-Sampler::Sampler()
+
+
+Sampler::Sampler():dis(std::uniform_real_distribution<double>(0.0,1.0))
 {
+}
+
+void Sampler::Seed(unsigned int s)
+{
+	random.seed(s);
 }
 
 double Sampler::GetDouble() const
 {
-	static std::default_random_engine random(time(nullptr));
-	static std::uniform_real_distribution<double> dis(0.0, 1.0);
 	return dis(random);
+	//return 0.5;
 }

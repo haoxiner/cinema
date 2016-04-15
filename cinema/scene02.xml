@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cinema>
   <renderer>
-    <bounce>15</bounce>
-    <sample>4</sample>
+    <bounce>5</bounce>
+    <sample>32</sample>
   </renderer>
   <camera>
     <resolution>1280,720</resolution>
-    <position>2.565,8.861,19.961</position>
-    <focus>2.565,2,0</focus>
+    <position>1.5,10.861,25.161</position>
+    <focus>1.5,2,0</focus>
     <up>0,1,0</up>
-    <fov>34.3</fov>
+    <fov>25.3</fov>
   </camera>
   <scene>
+    <environment>0.1,0.1,0.118</environment>
     <model>
-      <diffuse>0.4,0.4,0.4</diffuse>
+      <diffuse>1,1,1</diffuse>
       <mesh>wall.txt</mesh>
     </model>
     <model>
       <emit>
         <color>1,1,1</color>
-        <scale>1</scale>
+        <scale>3</scale>
       </emit>
       <sphere>
         <center>-3.37,6.43,3.036</center>
@@ -29,7 +30,7 @@
     <model>
       <emit>
         <color>0.762,0.762,0.762</color>
-        <scale>1</scale>
+        <scale>2</scale>
       </emit>
       <sphere>
         <center>-0.01,6.43,3.036</center>
@@ -39,7 +40,7 @@
     <model>
       <emit>
         <color>0.5,0.5,0.5</color>
-        <scale>1</scale>
+        <scale>1.5</scale>
       </emit>
       <sphere>
         <center>3.634,6.43,3.036</center>
@@ -59,29 +60,26 @@
     <model>
       <blinn>
         <color>1,1,1</color>
-        <exponent>130</exponent>
+        <exponent>512</exponent>
       </blinn>
       <mesh>block0.txt</mesh>
     </model>
     <model>
       <blinn>
-        <color>0.18,0.18,0.18</color>
-        <exponent>625</exponent>
+        <color>1,1,1</color>
+        <exponent>2048</exponent>
       </blinn>
       <mesh>block1.txt</mesh>
     </model>
     <model>
       <blinn>
-        <color>0.18,0.18,0.18</color>
-        <exponent>2500</exponent>
+        <color>1,1,1</color>
+        <exponent>8192</exponent>
       </blinn>
       <mesh>block2.txt</mesh>
     </model>
     <model>
-      <blinn>
-        <color>0.189,0.189,0.189</color>
-        <exponent>10000</exponent>
-      </blinn>
+      <specular>1,1,1</specular>
       <mesh>block3.txt</mesh>
     </model>
   </scene>

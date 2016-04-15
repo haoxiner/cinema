@@ -8,7 +8,7 @@
 #include "SpecularReflection.h"
 #include "DiffuseReflection.h"
 #include "TriangleMesh.h"
-Scene::Scene()
+Scene::Scene() :Environment(Color::BLACK)
 {
 }
 

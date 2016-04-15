@@ -321,6 +321,13 @@ void Parser::ParseScene()
 			}
 			scene->AddModel(model);
 		}
+		else if (tag == "environment")
+		{
+			Color environment;
+			SkipSpace();
+			ParseTripleDouble(&environment.r, &environment.g, &environment.b);
+			scene->Environment = environment;
+		}
 		else if (tag == "/scene")
 		{
 			break;

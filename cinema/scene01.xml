@@ -15,7 +15,7 @@
     <model>
       <emit>
         <color>1,1,1</color>
-        <scale>12</scale>
+        <scale>1</scale>
       </emit>
       <mesh>arealight.txt</mesh>
     </model>
