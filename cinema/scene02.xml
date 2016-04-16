@@ -2,7 +2,7 @@
 <cinema>
   <renderer>
     <bounce>5</bounce>
-    <sample>32</sample>
+    <sample>4</sample>
   </renderer>
   <camera>
     <resolution>1280,720</resolution>
@@ -12,7 +12,7 @@
     <fov>25.3</fov>
   </camera>
   <scene>
-    <environment>0.1,0.1,0.118</environment>
+    <environment>0.3,0.3,0.3</environment>
     <model>
       <diffuse>1,1,1</diffuse>
       <mesh>wall.txt</mesh>
@@ -20,7 +20,7 @@
     <model>
       <emit>
         <color>1,1,1</color>
-        <scale>3</scale>
+        <scale>4</scale>
       </emit>
       <sphere>
         <center>-3.37,6.43,3.036</center>
@@ -30,7 +30,7 @@
     <model>
       <emit>
         <color>0.762,0.762,0.762</color>
-        <scale>2</scale>
+        <scale>3</scale>
       </emit>
       <sphere>
         <center>-0.01,6.43,3.036</center>
@@ -40,7 +40,7 @@
     <model>
       <emit>
         <color>0.5,0.5,0.5</color>
-        <scale>1.5</scale>
+        <scale>2.5</scale>
       </emit>
       <sphere>
         <center>3.634,6.43,3.036</center>
@@ -50,7 +50,7 @@
     <model>
       <emit>
         <color>0.295,0.295,0.295</color>
-        <scale>1</scale>
+        <scale>2</scale>
       </emit>
       <sphere>
         <center>7.104,6.43,3.036</center>
@@ -59,27 +59,27 @@
     </model>
     <model>
       <blinn>
-        <color>1,1,1</color>
-        <exponent>512</exponent>
+        <color>0.36470,0.39215,0.55098</color>
+        <exponent>1024</exponent>
       </blinn>
       <mesh>block0.txt</mesh>
     </model>
     <model>
       <blinn>
-        <color>1,1,1</color>
+        <color>0.36470,0.39215,0.55098</color>
         <exponent>2048</exponent>
       </blinn>
       <mesh>block1.txt</mesh>
     </model>
     <model>
       <blinn>
-        <color>1,1,1</color>
+        <color>0.36470,0.39215,0.55098</color>
         <exponent>8192</exponent>
       </blinn>
       <mesh>block2.txt</mesh>
     </model>
     <model>
-      <specular>1,1,1</specular>
+      <specular>0.36470,0.39215,0.55098</specular>
       <mesh>block3.txt</mesh>
     </model>
   </scene>

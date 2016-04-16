@@ -3,10 +3,9 @@
 class Sampler
 {
 public:
-	Sampler();
-	void Seed(unsigned int s);
-	double GetDouble()const;
+	Sampler(unsigned int seed);
+	double GetDouble();
 private:
-	std::default_random_engine random;
-	std::uniform_real_distribution<double> dis;
+	std::default_random_engine m_engine;
+	std::uniform_real_distribution<double> m_distribution;
 };

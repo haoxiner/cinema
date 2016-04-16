@@ -7,8 +7,8 @@
 #include "Sampler.h"
 #include <cmath>
 
-Renderer::Renderer(unsigned int bounceDepth, unsigned int samplesPerPixel):m_sampler(nullptr),m_bounceDepth(bounceDepth),
-m_samplesPerPixel(samplesPerPixel)
+Renderer::Renderer(unsigned int bounceDepth, unsigned int samplesPerPixel):m_bounceDepth(bounceDepth),
+samplesPerPixel(samplesPerPixel)
 {
 }
 
@@ -16,7 +16,11 @@ Renderer::~Renderer()
 {
 }
 
-Color Renderer::Render(const Ray & cameraRay, const Scene &scene)
+/*
+ * monte carlo path tracing
+ * path bsdfs are multiplied and stored in pathColor
+ */
+Color Renderer::Render(const Ray & cameraRay, const Scene &scene,Sampler &sampler)
 {
 	Color color = Color::BLACK;
 	Color pathColor = Color::WHITE;
@@ -38,10 +42,14 @@ Color Renderer::Render(const Ray & cameraRay, const Scene &scene)
 			color += pathColor*(Vector::Dot(intersection.normal, wo) > 0 ? intersection.model->emit : 0);
 			break;
 		}
+		/*
+		 * some bsdf and related pdf have been simplified when calling bsdf->f
+		 * so bsdf and pdf may not be the 'correct' value
+		 */
 		double pdf;
-		Color brdf = intersection.model->bsdf->f(intersection.normal, wo.Normalize(), &wi, &pdf, *m_sampler);
+		Color bsdf = intersection.model->bsdf->f(intersection.normal, wo.Normalize(), &wi, &pdf, sampler);
 		double wiDotN = Vector::Dot(intersection.normal, wi.Normalize());
-		pathColor *= (brdf*std::abs(wiDotN));
+		pathColor *= (bsdf*(std::abs(wiDotN) / pdf));
 		if (bounces < m_bounceDepth)
 		{
 			ray.o = intersection.point;
@@ -54,9 +62,4 @@ Color Renderer::Render(const Ray & cameraRay, const Scene &scene)
 		}
 	}
 	return color;
-}
-
-void Renderer::SetSampler(Sampler * sampler)
-{
-	m_sampler = sampler;
 }

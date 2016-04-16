@@ -15,7 +15,7 @@
     <model>
       <emit>
         <color>1,1,1</color>
-        <scale>1</scale>
+        <scale>12</scale>
       </emit>
       <mesh>arealight.txt</mesh>
     </model>
@@ -33,7 +33,7 @@
     <model>
       <blinn>
         <color>0.7,0.7,0.7</color>
-        <exponent>0.8</exponent>
+        <exponent>1024</exponent>
       </blinn>
       <sphere>
         <center>2.24,1.6,1.926</center>

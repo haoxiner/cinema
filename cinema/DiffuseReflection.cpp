@@ -27,6 +27,10 @@ Color DiffuseReflection::f(const Vector & normal, const Vector & wo, Vector * wi
 	tangent = tangent.Normalize();
 	bitangent = Vector::Cross(n, tangent).Normalize();*/
 
+	/*
+	 * Frisvad J R. Building an orthonormal basis from a 3D unit vector without normalization[J].
+	 * Journal of Graphics Tools, 2012, 16(3): 151-159.
+	 */
 	Vector tangent, bitangent;
 	if (n.z < -0.9999999)
 	{
@@ -41,11 +45,18 @@ Color DiffuseReflection::f(const Vector & normal, const Vector & wo, Vector * wi
 		bitangent = Vector(b, 1.0 - n.y*n.y*a, -n.y);
 	}
 
+	/*
+	 * cosine sample reflect
+	 */
 	const double u1 = sampler.GetDouble();
 	const double u2 = sampler.GetDouble();
 	const double r = std::sqrt(u1);
 	const double theta = 2 * M_PI * u2;
 	*wi = tangent*(r*std::cos(theta)) + bitangent*(r*std::sin(theta)) + n*std::sqrt(std::fmax(0, 1 - u1));
+
+	/* if return color / PI , then pdf = 1.0/PI.
+	 * we simplify this by returning color and setting pdf = 1.
+	 */
 	*pdf = 1.0;
 	return m_color;
 }

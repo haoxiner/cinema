@@ -1,17 +1,12 @@
 #include "Sampler.h"
+#include <functional>
 
-
-Sampler::Sampler():dis(std::uniform_real_distribution<double>(0.0,1.0))
+Sampler::Sampler(unsigned int seed) :m_engine(seed), m_distribution(0.0, 1.0)
 {
+	
 }
 
-void Sampler::Seed(unsigned int s)
+double Sampler::GetDouble()
 {
-	random.seed(s);
-}
-
-double Sampler::GetDouble() const
-{
-	return dis(random);
-	//return 0.5;
+	return m_distribution(m_engine);
 }

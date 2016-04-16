@@ -43,16 +43,16 @@ Color BlinnGlossy::f(const Vector & normal, const Vector & wo, Vector * wi, doub
 	{
 		h = -h;
 	}
-	*wi = h * (2 * Vector::Dot(wo, h)) - wo;
+	
 	if (Vector::Dot(wo,h) <= 0.0)
 	{
 		*pdf = 1.0;
 	}
 	else
 	{
-		*pdf = ((m_exponent + 1.0)*std::pow(cosTheta, m_exponent)) / (2.0*M_PI*4.0*Vector::Dot(wo, h));
-		//*pdf = (std::pow(Vector::Dot(*wi, normal * (2 * Vector::Dot(wo, normal)) - wo), m_exponent) * Vector::Dot(normal, *wi));
+		*wi = h * (2 * Vector::Dot(wo, h)) - wo;
+		*pdf = 1.0;
+		//*pdf = ((m_exponent + 1.0)*std::pow(cosTheta, m_exponent)) / (2.0*M_PI*4.0*Vector::Dot(wo, h));
 	}
-	//*pdf = 1.0;
 	return m_color;
 }
