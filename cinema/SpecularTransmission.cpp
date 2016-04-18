@@ -1,6 +1,7 @@
 #include "SpecularTransmission.h"
 #include "Vector.h"
 #include "Sampler.h"
+#include "Fresnel.h"
 #include <cmath>
 
 SpecularTransmission::SpecularTransmission()
@@ -14,13 +15,6 @@ SpecularTransmission::SpecularTransmission(const Color & color, double eta) :BSD
 
 SpecularTransmission::~SpecularTransmission()
 {
-}
-
-static double FresnelDielectric(const double etaT, const double etaI, const double cosI, const double cosT)
-{
-	double r1 = (etaT*cosI - etaI*cosT) / (etaT*cosI + etaI*cosT);
-	double r2 = (etaI*cosI - etaT*cosT) / (etaI*cosI + etaT*cosT);
-	return 0.5*(r1*r1 + r2*r2);
 }
 
 Color SpecularTransmission::f(const Vector & normal, const Vector & wo, Vector * wi, double * pdf, Sampler & sampler)
@@ -55,8 +49,8 @@ Color SpecularTransmission::f(const Vector & normal, const Vector & wo, Vector *
 	{
 		Vector n = Vector::Dot(normal, wo) >= 0 ? normal : -normal;
 		*wi = n * (2 * Vector::Dot(wo, n)) - wo;
-		return m_color;
+		return m_color * (1.0 / cosTheta);
 	}
 	*wi = n*cosTheta - (wo + n*cosPhi) * (eO / eI);
-	return m_color;
+	return m_color * (1.0 / cosTheta);
 }

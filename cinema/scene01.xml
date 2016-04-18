@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cinema>
   <renderer>
-    <bounce>9</bounce>
+    <bounce>5</bounce>
     <sample>256</sample>
   </renderer>
   <camera>

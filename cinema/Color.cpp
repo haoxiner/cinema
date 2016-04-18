@@ -63,3 +63,13 @@ Color Color::operator*(const double f) const
 {
 	return Color(r*f, g*f, b*f);
 }
+
+bool Color::operator==(const Color & c) const
+{
+	return r == c.r && g == c.g && b == c.b;
+}
+
+bool Color::operator!=(const Color & c) const
+{
+	return r != c.r || g != c.g || b != c.b;
+}

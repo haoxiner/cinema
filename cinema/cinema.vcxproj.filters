@@ -203,6 +203,9 @@
     <ClInclude Include="BlinnGlossy.h">
       <Filter>Header Files\bxdf</Filter>
     </ClInclude>
+    <ClInclude Include="Fresnel.h">
+      <Filter>Header Files\bxdf</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="test.xml">
