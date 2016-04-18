@@ -43,8 +43,8 @@ bool Triangle::Intersect(const Ray &ray, double *t, Intersection *intersection)
 		return false;
 	}
 	double tHit = Vector::Dot(s2, e2) / determinantOfCoefficient;
-	// This shit cannot be lower than 0.0 which must not be zero !!!
-	if (tHit <= 1e-6)
+	// 0.0 makes mistake because of self-intersection
+	if (tHit <= 1e-7)
 	{
 		return false;
 	}

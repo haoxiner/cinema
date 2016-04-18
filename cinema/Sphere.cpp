@@ -23,7 +23,7 @@ bool Sphere::Intersect(const Ray & ray, double * t, Intersection *intersection)
 	if (delta >= 0)
 	{
 		double tHit = (-vDotD - std::sqrt(delta)) / squareD;
-		if (tHit > 0.0)
+		if (tHit > 1e-7)
 		{
 			*t = tHit;
 			intersection->geometry = this;

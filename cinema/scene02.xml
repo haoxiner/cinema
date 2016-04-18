@@ -2,7 +2,7 @@
 <cinema>
   <renderer>
     <bounce>5</bounce>
-    <sample>32</sample>
+    <sample>8192</sample>
   </renderer>
   <camera>
     <resolution>1280,720</resolution>
