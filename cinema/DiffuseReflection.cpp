@@ -15,7 +15,7 @@ Color DiffuseReflection::f(const Vector & normal, const Vector & wo, Vector * wi
 	Vector n = Vector::Dot(normal,wo) >= 0 ? normal : -normal;
 	/*
 	Vector tangent, bitangent;
-	if (std::abs(n.x) > 0.9)
+	if (std::fabs(n.x) > 0.9)
 	{
 		tangent = Vector(0, 1, 0);
 	}
@@ -46,7 +46,7 @@ Color DiffuseReflection::f(const Vector & normal, const Vector & wo, Vector * wi
 	}
 
 	/*
-	 * cosine sample reflect
+	 * cosine sample vector around normal
 	 */
 	const double u1 = sampler.GetDouble();
 	const double u2 = sampler.GetDouble();
@@ -54,8 +54,8 @@ Color DiffuseReflection::f(const Vector & normal, const Vector & wo, Vector * wi
 	const double theta = 2 * M_PI * u2;
 	*wi = tangent*(r*std::cos(theta)) + bitangent*(r*std::sin(theta)) + n*std::sqrt(std::fmax(0, 1 - u1));
 
-	/* if return color / PI , then pdf = 1.0/PI.
-	 * we simplify this by returning color and setting pdf = 1.
+	/* if return color/PI , then pdf=1.0/PI.
+	 * we simplify this by returning color and setting pdf=1.0
 	 */
 	*pdf = 1.0;
 	return m_color;

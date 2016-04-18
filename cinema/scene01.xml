@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cinema>
   <renderer>
-    <bounce>5</bounce>
-    <sample>32</sample>
+    <bounce>9</bounce>
+    <sample>256</sample>
   </renderer>
   <camera>
     <resolution>480,360</resolution>
-    <position>0,4.8,15.5</position>
-    <focus>0,4.8,0</focus>
+    <position>0,5,15.5</position>
+    <focus>0,5,0</focus>
     <up>0,1,0</up>
     <fov>54.43</fov>
   </camera>
@@ -31,10 +31,10 @@
       </sphere>
     </model>
     <model>
-      <blinn>
-        <color>0.7,0.7,0.7</color>
-        <exponent>1024</exponent>
-      </blinn>
+      <transparent>
+        <color>1,1,1</color>
+        <eta>1.799</eta>
+      </transparent>
       <sphere>
         <center>2.24,1.6,1.926</center>
         <radius>1.6</radius>

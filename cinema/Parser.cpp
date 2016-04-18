@@ -6,6 +6,7 @@
 #include "Model.h"
 #include "SpecularReflection.h"
 #include "DiffuseReflection.h"
+#include "SpecularTransmission.h"
 #include "BlinnGlossy.h"
 #include "MeshParser.h"
 #include "Sphere.h"
@@ -286,6 +287,30 @@ void Parser::ParseScene()
 						else if (tag == "/blinn")
 						{
 							model->bsdf = new BlinnGlossy(color, exponent);
+							break;
+						}
+					}
+				}
+				else if (tag == "transparent")
+				{
+					Color color;
+					double eta;
+					while (HasNextTag())
+					{
+						tag = NextTag();
+						if (tag == "color")
+						{
+							SkipSpace();
+							ParseTripleDouble(&color.r, &color.g, &color.b);
+						}
+						else if (tag == "eta")
+						{
+							SkipSpace();
+							eta = ParseDouble();
+						}
+						else if (tag == "/transparent")
+						{
+							model->bsdf = new SpecularTransmission(color, eta);
 							break;
 						}
 					}

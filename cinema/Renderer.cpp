@@ -48,8 +48,8 @@ Color Renderer::Render(const Ray & cameraRay, const Scene &scene,Sampler &sample
 		 */
 		double pdf;
 		Color bsdf = intersection.model->bsdf->f(intersection.normal, wo.Normalize(), &wi, &pdf, sampler);
-		double wiDotN = Vector::Dot(intersection.normal, wi.Normalize());
-		pathColor *= (bsdf*(std::abs(wiDotN) / pdf));
+		double wiDotN = Vector::Dot(intersection.normal, wi);
+		pathColor *= (bsdf*(std::fabs(wiDotN) / pdf));
 		if (bounces < m_bounceDepth)
 		{
 			ray.o = intersection.point;

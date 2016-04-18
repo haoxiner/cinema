@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 	if (argc < 2 || argc > 3)
 	{
 		fprintf(stderr, "Usage: cinema scene_file_name.xml [number of thread]");
-		return 0;
+		return 0; 
 	}
 	int numOfThread = 2;
 	if (argc == 3)
@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 		SYSTEM_INFO si;
 		GetSystemInfo(&si);
 		int numOfProcessors = si.dwNumberOfProcessors;
-		numOfThread = (threads > numOfProcessors || threads < 1) ? numOfProcessors : threads;
+		numOfThread = (threads > numOfProcessors || threads < 1) ? numOfProcessors : (threads);
 	}
 	fprintf(stderr, "Threads: %d\n", numOfThread);
 	// parse scene.xml
@@ -121,25 +121,24 @@ void DispatchTask(const int numOfThread)
 	fprintf(stderr, "\rRendering: 0.0 %%");
 	fflush(stderr);
 	// dispatch
-	for (int i = 0; i < numOfThread; ++i)
+	int last = numOfThread - 1;
+	for (int i = 0; i < last; ++i)
 	{
-		if ((i + 1)*taskStep >= static_cast<int>(image->xResolution) - 1)
-		{
-			arguments[i * 2] = i*taskStep;
-			arguments[i * 2 + 1] = static_cast<int>(image->xResolution);
-			thd[i] = _beginthreadex(nullptr, 0, renderTask, (void*)(&arguments[i*2]), 0, &tid[i]);
-			break;
-		}
 		arguments[i * 2] = i*taskStep;
 		arguments[i * 2 + 1] = (i + 1)*taskStep;
 		thd[i] = _beginthreadex(nullptr, 0, renderTask, (void*)(&arguments[i*2]), 0, &tid[i]);
 	}
+	arguments[last * 2] = last*taskStep;
+	arguments[last * 2 + 1] = static_cast<int>(image->xResolution);
+	thd[last] = _beginthreadex(nullptr, 0, renderTask, (void*)(&arguments[last * 2]), 0, &tid[last]);
+
 	for (size_t i = 0; i < numOfThread; i++)
 	{
 		WaitForSingleObject((HANDLE)thd[i], INFINITE);
 		CloseHandle((HANDLE)thd[i]);
 	}
 	time_t t2 = time(nullptr);
+	fprintf(stderr, "\rRendering: %.2f %%", columnCount / static_cast<float>(image->xResolution) * 100);
 	fprintf(stderr, "\nTime used: %us\n", static_cast<unsigned int>(t2 - t1));
 	fflush(stderr);
 }
