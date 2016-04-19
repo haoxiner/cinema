@@ -337,7 +337,7 @@ void Parser::ParseScene()
 						}
 					}
 					model->emit = emit;
-					model->bsdf = new SpecularReflection(Color::WHITE);
+					model->bsdf = new DiffuseReflection(Color::WHITE);
 				}
 				else if (tag == "/model")
 				{

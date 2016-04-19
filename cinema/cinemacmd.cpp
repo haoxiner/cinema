@@ -145,15 +145,15 @@ void DispatchTask(const int numOfThread)
 
 void WriteToFile(const char * filepath)
 {
-	for (int i = 0; i < static_cast<int>(image->xResolution); i++)
-	{
-		image->SetColor(i, 0, Color::WHITE);
-		image->SetColor(i, image->yResolution - 1, Color::WHITE);
-	}
-	for (int i = 0; i < static_cast<int>(image->yResolution); i++)
-	{
-		image->SetColor(0, i, Color::WHITE);
-		image->SetColor(image->xResolution - 1, i, Color::WHITE);
-	}
+	//for (int i = 0; i < static_cast<int>(image->xResolution); i++)
+	//{
+	//	image->SetColor(i, 0, Color::WHITE);
+	//	image->SetColor(i, image->yResolution - 1, Color::WHITE);
+	//}
+	//for (int i = 0; i < static_cast<int>(image->yResolution); i++)
+	//{
+	//	image->SetColor(0, i, Color::WHITE);
+	//	image->SetColor(image->xResolution - 1, i, Color::WHITE);
+	//}
 	image->WriteToFile(filepath);
 }

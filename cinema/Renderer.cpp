@@ -37,11 +37,7 @@ Color Renderer::Render(const Ray & cameraRay, const Scene &scene,Sampler &sample
 			color += pathColor * scene.Environment;
 			break;
 		}
-		if (intersection.model->emit != Color::BLACK)
-		{
-			color += pathColor*(Vector::Dot(intersection.normal, wo) > 0 ? intersection.model->emit : 0);
-			break;
-		}
+		color += pathColor*(Vector::Dot(intersection.normal, wo) > 0 ? intersection.model->emit : 0);
 		/*
 		 * some bsdf and related pdf have been simplified when calling bsdf->f
 		 * so bsdf and pdf may not be the 'correct' value
@@ -50,7 +46,7 @@ Color Renderer::Render(const Ray & cameraRay, const Scene &scene,Sampler &sample
 		Color bsdf = intersection.model->bsdf->f(intersection.normal, wo.Normalize(), &wi, &pdf, sampler);
 		double wiDotN = Vector::Dot(intersection.normal, wi);
 		pathColor *= (bsdf*(std::fabs(wiDotN) / pdf));
-		if (bounces == m_bounceDepth)
+		if (bounces >= m_bounceDepth)
 		{
 			double p = std::fmax(pathColor.r, std::fmax(pathColor.g, pathColor.b));
 			if (sampler.GetDouble() < p)

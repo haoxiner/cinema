@@ -2,10 +2,10 @@
 <cinema>
   <renderer>
     <bounce>5</bounce>
-    <sample>256</sample>
+    <sample>128</sample>
   </renderer>
   <camera>
-    <resolution>480,360</resolution>
+    <resolution>960,720</resolution>
     <position>0,5,15.5</position>
     <focus>0,5,0</focus>
     <up>0,1,0</up>
