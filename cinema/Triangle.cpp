@@ -14,6 +14,10 @@ Triangle::~Triangle()
 
 bool Triangle::Intersect(const Ray &ray, double *t, Intersection *intersection)
 {
+	if (!bbox.Intersect(ray))
+	{
+		return false;
+	}
 	const Point &p0 = mesh->vertices[v[0]];
 	const Point &p1 = mesh->vertices[v[3]];
 	const Point &p2 = mesh->vertices[v[6]];

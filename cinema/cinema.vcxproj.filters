@@ -37,6 +37,9 @@
     <Filter Include="Resource Files\scene02">
       <UniqueIdentifier>{3f5b4f10-f4e5-46a7-8e62-e2ed27c5f156}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\scene03">
+      <UniqueIdentifier>{7a39015b-d1f8-4c48-9501-91db954bcb2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vertex.cpp">
@@ -68,9 +71,6 @@
     </ClCompile>
     <ClCompile Include="Point.cpp">
       <Filter>Source Files\math</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjLoader.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Material.cpp">
       <Filter>Source Files</Filter>
@@ -120,6 +120,9 @@
     <ClCompile Include="BlinnGlossy.cpp">
       <Filter>Source Files\bxdf</Filter>
     </ClCompile>
+    <ClCompile Include="BBox.cpp">
+      <Filter>Source Files\model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vertex.h">
@@ -148,9 +151,6 @@
     </ClInclude>
     <ClInclude Include="Point.h">
       <Filter>Header Files\math</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjLoader.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Material.h">
       <Filter>Header Files</Filter>
@@ -206,6 +206,9 @@
     <ClInclude Include="Fresnel.h">
       <Filter>Header Files\bxdf</Filter>
     </ClInclude>
+    <ClInclude Include="BBox.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="test.xml">
@@ -216,6 +219,9 @@
     </Xml>
     <Xml Include="scene02.xml">
       <Filter>Resource Files\scene02</Filter>
+    </Xml>
+    <Xml Include="scene03.xml">
+      <Filter>Resource Files\scene03</Filter>
     </Xml>
   </ItemGroup>
   <ItemGroup>
@@ -257,6 +263,9 @@
     </Text>
     <Text Include="wall.txt">
       <Filter>Resource Files\scene02</Filter>
+    </Text>
+    <Text Include="glass.txt">
+      <Filter>Resource Files\scene03</Filter>
     </Text>
   </ItemGroup>
 </Project>

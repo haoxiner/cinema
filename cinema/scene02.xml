@@ -5,7 +5,7 @@
     <sample>128</sample>
   </renderer>
   <camera>
-    <resolution>1280,720</resolution>
+    <resolution>640,360</resolution>
     <position>1.5,10.861,25.161</position>
     <focus>1.5,2,0</focus>
     <up>0,1,0</up>

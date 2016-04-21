@@ -10,6 +10,7 @@ public:
 	Point operator-(const Vector &v) const;
 	Vector operator+(const Point &p) const;
 	Vector operator-(const Point &p) const;
+	double operator[](const size_t index)const;
 	double x, y, z;
 };
 

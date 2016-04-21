@@ -1,5 +1,6 @@
 #pragma once
 #include "Vector.h"
+#include "BBox.h"
 #include <vector>
 class Ray;
 class Intersection;
@@ -14,5 +15,6 @@ public:
 	virtual Vector GetNormal(const Intersection & intersection)const;
 	virtual void Extract(std::vector<Geometry*> *geometries);
 	Model *model;
+	BBox bbox;
 };
 

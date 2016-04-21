@@ -49,7 +49,8 @@ int main(int argc, char *argv[])
 		int numOfProcessors = si.dwNumberOfProcessors;
 		numOfThread = (threads > numOfProcessors || threads < 1) ? numOfProcessors : (threads);
 	}
-	fprintf(stderr, "Threads: %d\n", numOfThread);
+	fprintf(stderr, "Loading %s ...", argv[1]);
+	fflush(stderr);
 	// parse scene.xml
 	Parser parser;
 	parser.Parse(argv[1]);
@@ -57,6 +58,9 @@ int main(int argc, char *argv[])
 	camera = parser.GetCamera();
 	renderer = parser.GetRenderer();
 	scene = parser.GetScene();
+	fprintf(stderr, " finish.\n");
+	fprintf(stderr, "Threads: %d\n", numOfThread);
+	fflush(stderr);
 	// render
 	Initialize();
 	DispatchTask(numOfThread);

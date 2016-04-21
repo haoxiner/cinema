@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BBox.cpp" />
     <ClCompile Include="BSDF.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="cinemacmd.cpp" />
@@ -154,7 +155,6 @@
     <ClCompile Include="MeshParser.cpp" />
     <ClCompile Include="BlinnGlossy.cpp" />
     <ClCompile Include="Model.cpp" />
-    <ClCompile Include="ObjLoader.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Ray.cpp" />
@@ -171,6 +171,7 @@
     <ClCompile Include="vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BBox.h" />
     <ClInclude Include="BSDF.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
@@ -183,7 +184,6 @@
     <ClInclude Include="MeshParser.h" />
     <ClInclude Include="BlinnGlossy.h" />
     <ClInclude Include="Model.h" />
-    <ClInclude Include="ObjLoader.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Ray.h" />
@@ -205,6 +205,7 @@
       <SubType>Designer</SubType>
     </Xml>
     <Xml Include="scene02.xml" />
+    <Xml Include="scene03.xml" />
     <Xml Include="test.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +217,7 @@
     <Text Include="block3.txt" />
     <Text Include="ceiling.txt" />
     <Text Include="floor.txt" />
+    <Text Include="glass.txt" />
     <Text Include="leftwall.txt" />
     <Text Include="light.txt" />
     <Text Include="lightedge.txt" />

@@ -33,3 +33,16 @@ Vector Point::operator-(const Point & p) const
 {
 	return Vector(x - p.x, y - p.y, z - p.z);
 }
+
+double Point::operator[](const size_t index) const
+{
+	if (index == 0)
+	{
+		return x;
+	}
+	else if (index == 1)
+	{
+		return y;
+	}
+	return z;
+}

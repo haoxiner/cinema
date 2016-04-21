@@ -13,6 +13,7 @@ public:
 	Vector operator/(const double f) const;
 	Vector & operator-=(const Vector &v);
 	Vector & operator-=(const double f);
+	double operator[](const size_t index)const;
 	double Square() const;
 	Vector Normalize()const;
 	static Vector Cross(const Vector &v1, const Vector &v2);

@@ -38,6 +38,18 @@ Vector & Vector::operator-=(const double f)
 	z -= f;
 	return *this;
 }
+double Vector::operator[](const size_t index) const
+{
+	if (index == 0)
+	{
+		return x;
+	}
+	else if (index == 1)
+	{
+		return y;
+	}
+	return z;
+}
 double Vector::Square() const
 {
 	return x*x + y*y + z*z;
