@@ -12,5 +12,7 @@ public:
 	BBox & Union(const Point & p);
 	BBox & Union(const double x, const double y, const double z);
 	bool Intersect(const Ray & ray)const;
+	int MaxExtension()const;
+	Point GetCenter()const;
 };
 

@@ -5,8 +5,8 @@
 
 BBox::BBox()
 {
-	min.x = min.y = min.z = -std::numeric_limits<double>::infinity();
-	max.x = max.y = max.z = std::numeric_limits<double>::infinity();
+	min.x = min.y = min.z = std::numeric_limits<double>::infinity();
+	max.x = max.y = max.z = -std::numeric_limits<double>::infinity();
 }
 
 BBox::BBox(double minX, double minY, double minZ, double maxX, double maxY, double maxZ) :min(minX, minY, minZ), max(maxX, maxY, maxZ)
@@ -60,8 +60,8 @@ bool BBox::Intersect(const Ray & ray) const
 	for (size_t i = 0; i < 3; ++i)
 	{
 		double invRayDir = 1.0 / ray.d[i];
-		double tNear = (min[i] - ray.o[i]);
-		double tFar = (max[i] - ray.o[i]);
+		double tNear = (min[i] - ray.o[i])*invRayDir;
+		double tFar = (max[i] - ray.o[i])*invRayDir;
 		if (tNear > tFar)
 		{
 			std::swap(tNear, tFar);
@@ -74,4 +74,25 @@ bool BBox::Intersect(const Ray & ray) const
 		}
 	}
 	return true;
+}
+
+int BBox::MaxExtension() const
+{
+	double extension = -std::numeric_limits<double>::infinity();
+	int axis = 0;
+	for (size_t i = 0; i < 3; ++i)
+	{
+		double localExtension = max[i] - min[i];
+		if (localExtension > extension)
+		{
+			axis = i;
+			extension = localExtension;
+		}
+	}
+	return axis;
+}
+
+Point BBox::GetCenter() const
+{
+	return Point((min.x + max.x)*0.5, (min.y + max.y)*0.5, (min.z + max.z)*0.5);
 }

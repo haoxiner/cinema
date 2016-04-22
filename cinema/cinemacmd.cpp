@@ -58,6 +58,7 @@ int main(int argc, char *argv[])
 	camera = parser.GetCamera();
 	renderer = parser.GetRenderer();
 	scene = parser.GetScene();
+	scene->Buildkdtree();
 	fprintf(stderr, " finish.\n");
 	fprintf(stderr, "Threads: %d\n", numOfThread);
 	fflush(stderr);

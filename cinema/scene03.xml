@@ -2,7 +2,7 @@
 <cinema>
   <renderer>
     <bounce>5</bounce>
-    <sample>4</sample>
+    <sample>16</sample>
   </renderer>
   <camera>
     <resolution>480,360</resolution>
@@ -13,6 +13,10 @@
   </camera>
   <scene>
     <model>
+      <diffuse>0.2,0.2,0.8</diffuse>
+      <mesh>glass.txt</mesh>
+    </model>
+    <model>
       <emit>
         <color>1,1,1</color>
         <scale>12</scale>
@@ -22,13 +26,6 @@
     <model>
       <diffuse>0.8,0.8,0.8</diffuse>
       <mesh>lightedge.txt</mesh>
-    </model>
-    <model>
-      <transparent>
-        <color>1,1,1</color>
-        <eta>1.799</eta>
-      </transparent>
-      <mesh>glass.txt</mesh>
     </model>
     <model>
       <diffuse>0.8,0.8,0.8</diffuse>

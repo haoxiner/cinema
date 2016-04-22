@@ -5,6 +5,7 @@ class Ray;
 class Intersection;
 class Model;
 class Geometry;
+class KDTree;
 class Scene
 {
 public:
@@ -15,7 +16,8 @@ public:
 	void Buildkdtree();
 	Color Environment;
 private:
-	std::vector<Model*> models;
-	std::vector<Geometry*> geometries;
+	std::vector<Model*> m_models;
+	std::vector<Geometry*> m_geometries;
+	KDTree * kdtree;
 };
 
