@@ -12,6 +12,7 @@ public:
 	~Scene();
 	bool Intersect(const Ray &ray, Intersection &intersection)const;
 	void AddModel(Model *model);
+	void Buildkdtree();
 	Color Environment;
 private:
 	std::vector<Model*> models;

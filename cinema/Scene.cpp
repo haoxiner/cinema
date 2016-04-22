@@ -56,3 +56,7 @@ void Scene::AddModel(Model * model)
 	model->GetGeometries(&geometries);
 	models.push_back(model);
 }
+
+void Scene::Buildkdtree()
+{
+}

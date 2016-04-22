@@ -151,6 +151,7 @@
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Intersection.cpp" />
+    <ClCompile Include="KDTree.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MeshParser.cpp" />
     <ClCompile Include="BlinnGlossy.cpp" />
@@ -180,6 +181,7 @@
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Intersection.h" />
+    <ClInclude Include="KDTree.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MeshParser.h" />
     <ClInclude Include="BlinnGlossy.h" />

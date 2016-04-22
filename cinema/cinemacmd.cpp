@@ -81,6 +81,7 @@ unsigned __stdcall renderTask(void *p)
 		{
 			Color pixel;
 			// stratified sampling
+			int cnt = 0;
 			for (int k = 0; k < spp; ++k)
 			{
 				double subI = i + k*step + sampler.GetDouble()*step;

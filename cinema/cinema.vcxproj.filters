@@ -123,6 +123,9 @@
     <ClCompile Include="BBox.cpp">
       <Filter>Source Files\model</Filter>
     </ClCompile>
+    <ClCompile Include="KDTree.cpp">
+      <Filter>Source Files\model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vertex.h">
@@ -207,6 +210,9 @@
       <Filter>Header Files\bxdf</Filter>
     </ClInclude>
     <ClInclude Include="BBox.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="KDTree.h">
       <Filter>Header Files\model</Filter>
     </ClInclude>
   </ItemGroup>
